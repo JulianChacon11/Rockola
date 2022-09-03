@@ -113,4 +113,23 @@ public class User {
     
     }
     
+    public void create_playlist(){
+        
+    }
+    
+     public void update_playlist(){
+    }
+     
+     public void search_playlist(){
+    }
+    
+     public void delete_playlist(){
+    }
+     
+    public void play_playlist(){
+    }
+    
+    public void stop_playlist(){
+    }
+    
 }
