@@ -18,5 +18,9 @@ public class MainController {
     public String cargarPaginaPrincipal(){
         return "desktop1";
         }
+    @GetMapping("/login")
+    public String iniciarSesión(){
+        return "login";
+        }
     }
 
