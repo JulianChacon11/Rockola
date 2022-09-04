@@ -12,11 +12,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * Clase para la gestión de canciones
+ * Clase para la gestión de artistas
  * @author Julian Chacon
  */
-@Entity(name = "tcanciones")
-public class Cancion {
+@Entity(name = "tartistas")
+public class Artista {
+    
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,26 +26,21 @@ public class Cancion {
     @Column(name = "nombre", length = 50, nullable = false)
     private String nombre;
     
-    @Column(name = "duracion", length = 5, nullable = false)
-    private String duracion;
-    
-    @Column(name = "link", length = 200, nullable = false)
-    private String link;
+    @Column(name = "nacionalidad", length = 20, nullable = false)
+    private String nacionalidad;
 
-    public Cancion() {
+    public Artista() {
     }
 
-    public Cancion(int id, String nombre, String duracion, String link) {
+    public Artista(String nombre, String nacionalidad) {
+        this.nombre = nombre;
+        this.nacionalidad = nacionalidad;
+    }
+
+    public Artista(int id, String nombre, String nacionalidad) {
         this.id = id;
         this.nombre = nombre;
-        this.duracion = duracion;
-        this.link = link;
-    }
-
-    public Cancion(String nombre, String duracion, String link) {
-        this.nombre = nombre;
-        this.duracion = duracion;
-        this.link = link;
+        this.nacionalidad = nacionalidad;
     }
 
     public int getId() {
@@ -54,8 +50,7 @@ public class Cancion {
     public void setId(int id) {
         this.id = id;
     }
-    
-    
+
     public String getNombre() {
         return nombre;
     }
@@ -64,26 +59,19 @@ public class Cancion {
         this.nombre = nombre;
     }
 
-    public String getDuracion() {
-        return duracion;
+    public String getNacionalidad() {
+        return nacionalidad;
     }
 
-    public void setDuracion(String duracion) {
-        this.duracion = duracion;
-    }
-
-    public String getLink() {
-        return link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
+    public void setNacionalidad(String nacionalidad) {
+        this.nacionalidad = nacionalidad;
     }
 
     @Override
     public String toString() {
-        return "Cancion{" + "id=" + id + ", nombre=" + nombre + ", duracion=" + duracion + ", link=" + link + '}';
+        return "Artista{" + "id=" + id + ", nombre=" + nombre + ", nacionalidad=" + nacionalidad + '}';
     }
     
+    
+    
 }
-
