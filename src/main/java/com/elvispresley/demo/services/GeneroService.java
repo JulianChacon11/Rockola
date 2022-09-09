@@ -9,11 +9,13 @@ import com.elvispresley.demo.entities.Genero;
 import com.elvispresley.demo.repositories.IGeneroRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *Clase para los servicios de la clase Genero
  * @author Julian Chacon
  */
+@Service
 public class GeneroService {
     
     @Autowired

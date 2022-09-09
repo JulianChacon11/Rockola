@@ -5,11 +5,15 @@
  */
 package com.elvispresley.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  * Clase para la gestión de canciones
@@ -30,6 +34,15 @@ public class Cancion {
     
     @Column(name = "link", length = 200, nullable = false)
     private String link;
+    
+    @Column(name = "id_genero")
+    private int id_genero;
+    
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_genero", insertable = false, updatable = false)
+    private Genero genero;
+
 
     public Cancion() {
     }
@@ -41,10 +54,12 @@ public class Cancion {
         this.link = link;
     }
 
-    public Cancion(String nombre, String duracion, String link) {
+   
+    public Cancion(String nombre, String duracion, String link, int id_genero) {
         this.nombre = nombre;
         this.duracion = duracion;
         this.link = link;
+        this.id_genero = id_genero;
     }
 
     public int getId() {
@@ -84,6 +99,7 @@ public class Cancion {
     public String toString() {
         return "Cancion{" + "id=" + id + ", nombre=" + nombre + ", duracion=" + duracion + ", link=" + link + '}';
     }
+    
     
 }
 
