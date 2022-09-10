@@ -13,31 +13,27 @@ import java.util.List;
  */
 public class Client extends User{
     
-    private String id_client;
+    private int id;
     private List<Playlist>  playlist;
+
+    public Client() {
+    }
+
+    public Client(int id, String name, String lastName, String email, Date dateOfBirth, String phone, String gender, String nationality, boolean userStatus) {
+        super(name, lastName, email, dateOfBirth, phone, gender, nationality, userStatus);
+        this.id = id;
+    }
 
     public Client(String name, String lastName, String email, Date date_of_birth, String phone, String gender, String nationality, boolean user_status) {
         super(name, lastName, email, date_of_birth, phone, gender, nationality, user_status);
     }
 
-    public Client(String id_client, List<Playlist> playlist, String name, String lastName, String email, Date date_of_birth, String phone, String gender, String nationality, boolean user_status) {
-        super(name, lastName, email, date_of_birth, phone, gender, nationality, user_status);
-        this.id_client = id_client;
-        this.playlist = playlist;
+    public int getId() {
+        return id;
     }
 
-    public Client(List<Playlist> playlist, String name, String lastName, String email, Date date_of_birth, String phone, String gender, String nationality, boolean user_status) {
-        super(name, lastName, email, date_of_birth, phone, gender, nationality, user_status);
-        this.playlist = playlist;
-    }
-    
-
-    public String getId_client() {
-        return id_client;
-    }
-
-    public void setId_client(String id_client) {
-        this.id_client = id_client;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public List<Playlist> getPlaylist() {

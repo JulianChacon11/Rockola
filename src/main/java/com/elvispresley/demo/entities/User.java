@@ -11,28 +11,44 @@ import java.util.Date;
  * @author andreastefannygarciamejia
  */
 public class User {
-    protected String name;
-    protected String lastName;
-    protected String email;
-    protected Date date_of_birth;
-    protected String phone;
-    protected String gender;
-    protected String nationality;
-    protected boolean user_status;
 
-    public User(String name, String lastName, String email, Date date_of_birth, String phone, String gender, String nationality, boolean user_status) {
+    private int id;
+    private String name;
+    private String lastName;
+    private String email;
+    private Date dateOfBirth;
+    private String phone;
+    private String gender;
+    private String nationality;
+    private boolean userStatus;
+
+    public User() {
+    }
+
+    public User(int id, String name, String lastName, String email, Date dateOfBirth, String phone, String gender, String nationality, boolean userStatus) {
+        this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.email = email;
-        this.date_of_birth = date_of_birth;
+        this.dateOfBirth = dateOfBirth;
         this.phone = phone;
         this.gender = gender;
         this.nationality = nationality;
-        this.user_status = user_status;
+        this.userStatus = userStatus;
     }
 
-   
-
+    public User(String name, String lastName, String email, Date dateOfBirth, String phone, String gender, String nationality, boolean userStatus) {
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+        this.dateOfBirth = dateOfBirth;
+        this.phone = phone;
+        this.gender = gender;
+        this.nationality = nationality;
+        this.userStatus = userStatus;
+    }
+    
+    
     public String getName() {
         return name;
     }
@@ -57,14 +73,13 @@ public class User {
         this.email = email;
     }
 
-    public Date getDate_of_birth() {
-        return date_of_birth;
+    public Date getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setDate_of_birth(Date date_of_birth) {
-        this.date_of_birth = date_of_birth;
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
-
 
     public String getPhone() {
         return phone;
@@ -90,12 +105,12 @@ public class User {
         this.nationality = nationality;
     }
 
-    public boolean isUser_status() {
-        return user_status;
+    public boolean isUserStatus() {
+        return userStatus;
     }
 
-    public void setUser_status(boolean user_status) {
-        this.user_status = user_status;
+    public void setUserStatus(boolean userStatus) {
+        this.userStatus = userStatus;
     }
     
     public void allowed_age(){

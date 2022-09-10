@@ -11,23 +11,28 @@ import java.util.Date;
  * @author andreastefannygarciamejia
  */
 public class Administrator extends User{
-    private String id_admin;
-
-    public Administrator(String id_admin, String name, String lastName, String email, Date date_of_birth, String phone, String gender, String nationality, boolean user_status) {
-        super(name, lastName, email, date_of_birth, phone, gender, nationality, user_status);
-        this.id_admin = id_admin;
+    
+    private int id;
+    
+    public Administrator() {
     }
 
-    public Administrator(String name, String lastName, String email, Date date_of_birth, String phone, String gender, String nationality, boolean user_status) {
-        super(name, lastName, email, date_of_birth, phone, gender, nationality, user_status);
+    public Administrator(int id, String name, String lastName, String email, Date dateOfBirth, String phone, String gender, String nationality, boolean userStatus) {
+        super(name, lastName, email, dateOfBirth, phone, gender, nationality, userStatus);
+        this.id = id;
     }
 
-    public String getId_admin() {
-        return id_admin;
+    public Administrator(String name, String lastName, String email, Date dateOfBirth, String phone, String gender, String nationality, boolean userStatus) {
+        super(name, lastName, email, dateOfBirth, phone, gender, nationality, userStatus);
+    }
+    
+    
+    public int getId_admin() {
+        return id;
     }
 
-    public void setId_admin(String id_admin) {
-        this.id_admin = id_admin;
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
@@ -39,8 +44,8 @@ public class Administrator extends User{
     public void disable_account() {
         super.disable_account();  
     
-}
-
+    }
+    
     @Override
     public void log_in() {
         super.log_in();
