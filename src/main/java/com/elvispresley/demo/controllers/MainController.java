@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainController {
     @GetMapping("/")
     public String cargarPaginaPrincipal(){
-        return "desktop1";
+        return "index";
         }
     @GetMapping("/login")
     public String iniciarSesión(){

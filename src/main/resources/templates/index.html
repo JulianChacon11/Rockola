@@ -1,73 +1,169 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>Proyecto Rockola MINTIC 2022</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            img{
-                border-radius: 50px
-            }
-        </style>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    </head>
-    <body>
-        <!--Esta es la parte del código de la barra de inicio de la parte superior-->
-        <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">ROCKOLA</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Canciones</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Artistas</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Géneros</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Idiomas</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Playlists</a>
-                  </li>
-                </ul>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
-              </div>
+<html>
+  <head>
+    <title>ROCKOLA</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6 {  margin: 0;  padding: 0;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Miriam+Libre:wght@400;700&display=swap"
+      data-tag="font"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div>
+      <link href="./index.css" rel="stylesheet" />
+      <link rel="stylesheet" href="../static/index.css" type="text/css">
+      <link rel="stylesheet" href="../static/index.css" type="text/css"/>
+
+
+
+      <div class="index-container">
+        <div class="index-index">
+          <span class="index-text"><span>SUGERENCIAS</span></span>
+
+          <img
+            src="/public/playground_assets/rectangle112-j2n-1200h.png"
+            alt="Rectangle112"
+            class="index-rectangle1"
+          />
+          <a href="/catragg">
+            <span class="index-text02"><span>Reggaetón</span></span>
+            <img
+            src="/public/playground_assets/rectangle5216-2sd-200h.png"
+            alt="Rectangle5216"
+            class="index-rectangle5"
+            />
+          </a>
+          <a href="/catrock">
+            <span class="index-text04"><span>Rock</span></span>
+            <img
+            src="/public/playground_assets/rectangle6222-6yi4-200h.png"
+            alt="Rectangle6222"
+            class="index-rectangle6"
+            />
+          </a>
+          <a href="/catpop">
+            <span class="index-text06"><span>Pop</span></span>
+            <img
+            src="/public/playground_assets/rectangle7224-yg9e-200h.png"
+            alt="Rectangle7224"
+            class="index-rectangle7"
+            />
+          </a>
+          <a href="/catelec">
+            <span class="index-text08"><span>Electrónica</span></span>
+            <img
+            src="/public/playground_assets/rectangle8226-tyye-200h.png"
+            alt="Rectangle8226"
+            class="index-rectangle8"
+            />
+          </a>
+          <img
+            src="/public/playground_assets/rectangle428-nc4-200h.png"
+            alt="Rectangle428"
+            class="index-rectangle4"
+          />
+          <a href="/registro">
+            <span class="index-text10"><span>REGISTRARSE</span></span>
+          </a>
+          <img
+            src="/public/playground_assets/rectangle326-vpvu-200h.png"
+            alt="Rectangle326"
+            class="index-rectangle3"
+          />
+          <a href="/login">
+            <span class="index-text12"><span>INICIAR SESIÓN</span></span>
+          </a>
+          <a href="/">
+            <span class="index-text14"><span>ROCKOLA</span></span>
+          </a>
+          <span class="index-text16"><span>CANCIONES</span></span>
+          <span class="index-text18"><span>ARTISTAS</span></span>
+          <span class="index-text20"><span>GÉNEROS</span></span>
+          <span class="index-text22"><span>PLAYLISTS</span></span>
+          <div class="index-reproductor">
+            <img
+              src="/public/playground_assets/rectangle9442-canp-200h.png"
+              alt="Rectangle9442"
+              class="index-rectangle9"
+            />
+            <div class="index-container1">
+              <img
+                src="/public/playground_assets/rectangle116017-zajc-200h.png"
+                alt="Rectangle116017"
+                class="index-rectangle11"
+              />
+              <img
+                src="/public/playground_assets/polygon1552-lped.svg"
+                alt="Polygon1552"
+                class="index-polygon1"
+              />
             </div>
-          </nav>
-        
-        <!--Esta es la parte del código de las sugerencias de géneros en la página-->
-       <figure class="figure">
-            <svg class="bd-placeholder-img figure-img img-fluid rounded" width="200" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 400x300" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#FFC554"></rect><text x="50%" y="50%" fill="#FFFFFF" dy=".3em"></text></svg>
-    
-            <figcaption class="figure-caption">Reggaetón</figcaption>
-        </figure>
-        <figure class="figure">
-            <svg class="bd-placeholder-img figure-img img-fluid rounded" width="200" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 400x300" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#54FFC1"></rect><text x="50%" y="50%" fill="#FFFFFF" dy=".3em"></text></svg>
-    
-            <figcaption class="figure-caption">Rock</figcaption>
-        </figure>
-        <figure class="figure">
-            <svg class="bd-placeholder-img figure-img img-fluid rounded" width="200" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 400x300" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#FF5492"></rect><text x="50%" y="50%" fill="#FFFFFF" dy=".3em"></text></svg>
-    
-            <figcaption class="figure-caption">Pop</figcaption>
-        </figure>
-        <figure class="figure">
-            <svg class="bd-placeholder-img figure-img img-fluid rounded" width="200" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 400x300" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#5498FF"></rect><text x="50%" y="50%" fill="#FFFFFF" dy=".3em"></text></svg>
-    
-            <figcaption class="figure-caption">Electrónica</figcaption>
-        </figure>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    </body>
-    
+            <div class="index-container2">
+              <img
+                src="/public/playground_assets/polygon2602-0r8s.svg"
+                alt="Polygon2602"
+                class="index-polygon2"
+              />
+              <img
+                src="/public/playground_assets/rectangle10603-3jrf.svg"
+                alt="Rectangle10603"
+                class="index-rectangle10"
+              />
+            </div>
+            <div class="index-container3">
+              <img
+                src="/public/playground_assets/rectangle10637-7jx.svg"
+                alt="Rectangle10637"
+                class="index-rectangle101"
+              />
+              <img
+                src="/public/playground_assets/polygon2636-cgxd.svg"
+                alt="Polygon2636"
+                class="index-polygon21"
+              />
+            </div>
+            <span class="index-text24"><span>Nombre Canción</span></span>
+            <span class="index-text26"><span>Artista</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
