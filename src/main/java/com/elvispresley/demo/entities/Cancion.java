@@ -69,7 +69,7 @@ public class Cancion {
     public void setId(int id) {
         this.id = id;
     }
-    
+
     
     public String getNombre() {
         return nombre;
@@ -78,7 +78,7 @@ public class Cancion {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
+    
     public String getDuracion() {
         return duracion;
     }
