@@ -9,11 +9,13 @@ import com.elvispresley.demo.entities.Artista;
 import com.elvispresley.demo.repositories.IArtistaRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Clase para los servicios de la clase Artistas
  * @author Julian Chacon
  */
+@Service
 public class ArtistaService {
    
     @Autowired
