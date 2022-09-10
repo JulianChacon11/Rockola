@@ -16,6 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `tadministradores`
+--
+
+DROP TABLE IF EXISTS `tadministradores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tadministradores` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `id_usuario` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_Admin_User_idx` (`id_usuario`),
+  CONSTRAINT `FK_Administradores_Usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tusuarios` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tadministradores`
+--
+
+LOCK TABLES `tadministradores` WRITE;
+/*!40000 ALTER TABLE `tadministradores` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tadministradores` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tartistas`
 --
 
@@ -27,8 +52,7 @@ CREATE TABLE `tartistas` (
   `nombre` varchar(50) NOT NULL,
   `nacionalidad` varchar(20) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
-  UNIQUE KEY `nombre_UNIQUE` (`nombre`)
+  UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -54,9 +78,9 @@ CREATE TABLE `tcanciones` (
   `duracion` varchar(5) NOT NULL,
   `link` varchar(200) NOT NULL,
   `id_genero` int NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id`,`nombre`),
   KEY `_idx` (`id_genero`),
-  CONSTRAINT `FK3` FOREIGN KEY (`id_genero`) REFERENCES `tgeneros` (`id`)
+  CONSTRAINT `FK_Canciones_Genero` FOREIGN KEY (`id_genero`) REFERENCES `tgeneros` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -83,8 +107,8 @@ CREATE TABLE `tcanciones_artistas` (
   PRIMARY KEY (`id`),
   KEY `FK4_idx` (`id_cancion`),
   KEY `FK5_idx` (`id_artista`),
-  CONSTRAINT `FK4` FOREIGN KEY (`id_cancion`) REFERENCES `tcanciones` (`id`),
-  CONSTRAINT `FK5` FOREIGN KEY (`id_artista`) REFERENCES `tartistas` (`id`)
+  CONSTRAINT `FK_CancionesArtistas_Artista` FOREIGN KEY (`id_artista`) REFERENCES `tartistas` (`id`),
+  CONSTRAINT `FK_CancionesArtistas_Cancion` FOREIGN KEY (`id_cancion`) REFERENCES `tcanciones` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -95,6 +119,31 @@ CREATE TABLE `tcanciones_artistas` (
 LOCK TABLES `tcanciones_artistas` WRITE;
 /*!40000 ALTER TABLE `tcanciones_artistas` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tcanciones_artistas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tclientes`
+--
+
+DROP TABLE IF EXISTS `tclientes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tclientes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `id_usuario` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_Client_User_idx` (`id_usuario`),
+  CONSTRAINT `FK_Clientes_Usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tusuarios` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tclientes`
+--
+
+LOCK TABLES `tclientes` WRITE;
+/*!40000 ALTER TABLE `tclientes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tclientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -134,9 +183,9 @@ CREATE TABLE `tgeneros_artistas` (
   `id_genero` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK2_idx` (`id_genero`),
-  KEY `FK1` (`id_artista`),
-  CONSTRAINT `FK1` FOREIGN KEY (`id_artista`) REFERENCES `tartistas` (`id`),
-  CONSTRAINT `FK2` FOREIGN KEY (`id_genero`) REFERENCES `tgeneros` (`id`)
+  KEY `FK_GenerosArtistas_Artista` (`id_artista`),
+  CONSTRAINT `FK_GenerosArtistas_Artista` FOREIGN KEY (`id_artista`) REFERENCES `tartistas` (`id`),
+  CONSTRAINT `FK_GenerosArtistas_Genero` FOREIGN KEY (`id_genero`) REFERENCES `tgeneros` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -148,6 +197,91 @@ LOCK TABLES `tgeneros_artistas` WRITE;
 /*!40000 ALTER TABLE `tgeneros_artistas` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tgeneros_artistas` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `tplaylists`
+--
+
+DROP TABLE IF EXISTS `tplaylists`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tplaylists` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(20) NOT NULL,
+  `id_cliente` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_Playlist_Client_idx` (`id_cliente`),
+  CONSTRAINT `FK_Playlist_Cliente` FOREIGN KEY (`id_cliente`) REFERENCES `tclientes` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tplaylists`
+--
+
+LOCK TABLES `tplaylists` WRITE;
+/*!40000 ALTER TABLE `tplaylists` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tplaylists` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tplaylists_canciones`
+--
+
+DROP TABLE IF EXISTS `tplaylists_canciones`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tplaylists_canciones` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `id_playlist` int NOT NULL,
+  `id_cancion` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_PlaylistsCanciones_Playlist_idx` (`id_playlist`),
+  KEY `FK_PlaylistsCanciones_Cancion_idx` (`id_cancion`),
+  CONSTRAINT `FK_PlaylistsCanciones_Cancion` FOREIGN KEY (`id_cancion`) REFERENCES `tcanciones` (`id`),
+  CONSTRAINT `FK_PlaylistsCanciones_Playlist` FOREIGN KEY (`id_playlist`) REFERENCES `tplaylists` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tplaylists_canciones`
+--
+
+LOCK TABLES `tplaylists_canciones` WRITE;
+/*!40000 ALTER TABLE `tplaylists_canciones` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tplaylists_canciones` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tusuarios`
+--
+
+DROP TABLE IF EXISTS `tusuarios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tusuarios` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `lastname` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `dateOfBirth` date NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `nationality` varchar(30) NOT NULL,
+  `userStatus` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email_UNIQUE` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tusuarios`
+--
+
+LOCK TABLES `tusuarios` WRITE;
+/*!40000 ALTER TABLE `tusuarios` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tusuarios` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -158,4 +292,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-03 13:21:57
+-- Dump completed on 2022-09-10 17:51:41

@@ -12,14 +12,30 @@ import java.util.List;
  */
 class Playlist {
     
+    private int id;
     private String name;
     private List<Cancion> cancion;
-    private int duracion;
+    private int idClient;
+    //private int duracion;
 
-    public Playlist(String name, List<Cancion> canciones, int duracion) {
+    public Playlist() {
+    }
+
+    public Playlist(int id, String name) {
+        this.id = id;
         this.name = name;
-        this.cancion = canciones;
-        this.duracion = duracion;
+    }
+
+    public Playlist(String name) {
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -38,6 +54,7 @@ class Playlist {
         this.cancion = canciones;
     }
 
+    /*
     public int getDuracion() {
         return duracion;
     }
@@ -45,6 +62,7 @@ class Playlist {
     public void setDuracion(int duracion) {
         this.duracion = duracion;
     }
+    */
     
 }
 

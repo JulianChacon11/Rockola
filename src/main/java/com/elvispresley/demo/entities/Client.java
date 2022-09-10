@@ -14,7 +14,7 @@ import java.util.List;
 public class Client extends User{
     
     private int id;
-    private List<Playlist>  playlist;
+    private List<Playlist> playlist;
 
     public Client() {
     }
