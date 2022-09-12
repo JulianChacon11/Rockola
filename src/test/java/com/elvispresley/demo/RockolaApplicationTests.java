@@ -76,8 +76,8 @@ class RockolaApplicationTests {
 //           
 //            boolean borrar = servicio.deleteCancion("Camisa Negra");
 //            Assertions.assertTrue(borrar, message);   
-//      }
-        
+// }  
+//       
 // --------------------------ARTISTA------------------
 //        
 //        @Test
@@ -162,11 +162,11 @@ class RockolaApplicationTests {
 //        
 //        }
 //        
-        @Test
-        void probarGeneroByNombre(){
-         List<Genero> getGeneros = servicioGenero.getGeneroByNombre("Electronica");
-         Assertions.assertTrue(getGeneros.size() > 0, "Error, no se encontró el género");
-        }
+//        @Test
+//        void probarGeneroByNombre(){
+//         List<Genero> getGeneros = servicioGenero.getGeneroByNombre("Electronica");
+//         Assertions.assertTrue(getGeneros.size() > 0, "Error, no se encontró el género");
+//        }
 //        
 //        @Test
 //        void probarViewGenero(){

@@ -5,7 +5,9 @@
  */
 package com.elvispresley.demo.controllers;
 
+import com.elvispresley.demo.services.CancionService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class MainController {
+    
+    private CancionService servicio;
     @GetMapping("/")
     public String cargarPaginaPrincipal(){
         return "index";
@@ -28,7 +32,8 @@ public class MainController {
         return "registro";
         }
     @GetMapping("/catrock")
-    public String Rock(){
+    public String Rock(Model rock){
+        rock.addAttribute("CategoriaRock", servicio.getAllCanciones());
         return "catrock";
         }
     @GetMapping("/catpop")
