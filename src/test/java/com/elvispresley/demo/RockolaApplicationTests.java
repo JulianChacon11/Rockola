@@ -24,12 +24,12 @@ class RockolaApplicationTests {
         
  // ---------------------------CANCION------------------------     
 	
-//       @Test
-//	void probarAddCancion() {
-//           Cancion c = new Cancion("song2", "3:20", "www.youtube.comkas", 1);
-//           Cancion guardada = servicio.addCancion(c);
-//           Assertions.assertTrue(guardada.getId() > 0, "Error, no se guardó la canción");
-//        }
+       @Test
+	void probarAddCancion() {
+           Cancion c = new Cancion("song3", "3:10", "www.youtube.comk", 1);
+           Cancion guardada = servicio.addCancion(c);
+           Assertions.assertTrue(guardada.getId() > 0, "Error, no se guardó la canción");
+        }
 //       @Test
 //        void probarAddCancion(){
 //           Cancion c = new Cancion( "SOMETHING ABOUT US", "3:48", "https://www.youtube.com/watch?v=sOS9aOIXPEk", 2);

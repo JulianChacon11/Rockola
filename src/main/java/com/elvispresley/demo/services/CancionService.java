@@ -6,6 +6,7 @@
 package com.elvispresley.demo.services;
 
 import com.elvispresley.demo.entities.Cancion;
+import com.elvispresley.demo.entities.Genero;
 import com.elvispresley.demo.repositories.ICancionRepository;
 import java.util.List;
 import java.util.Optional;
@@ -43,6 +44,11 @@ public class CancionService {
     
     public List<Cancion> getCancionByNombre(String nombre){
         List<Cancion> canciones = cancionRepository.findCancionByNombreContaining(nombre);
+        return canciones;
+    }
+    
+     public List<Cancion> getCancionByGenero(Integer id){
+        List<Cancion> canciones = cancionRepository.findCancionByGeneroContaining(id);
         return canciones;
     }
     public void deleteCancion(Cancion c){
