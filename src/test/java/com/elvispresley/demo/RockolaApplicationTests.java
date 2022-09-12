@@ -69,14 +69,15 @@ class RockolaApplicationTests {
 //           List <Cancion> getCancion = servicio.getCancionByNombre("Something About Us");
 //          Assertions.assertTrue(getCancion.size() > 0 , "Error, la cancion que busca no existe!");
 //       }
-//         @Test 
-//        void probarDeleteCancion(){
-//            Integer id = 12;
-//            List<Cancion> buscar = servicio.getCancionByNombre("Camisa negra");
-//           
-//            boolean borrar = servicio.deleteCancion("Camisa Negra");
-//            Assertions.assertTrue(borrar, message);   
-// }  
+//          @Test
+//          void probarDeleteCancion(){
+//          String cancion = "SONG45";
+//          List<Cancion> buscarCancion = servicio.getCancionByNombre(cancion);
+//          Cancion delete = servicio.deleteCancion(cancion, "3:20","https://www.youtube.comkas,", 2); 
+//          List<Cancion> borrado = servicio.getCancionByNombre(cancion);
+//          Assertions.assertTrue(borrado == null, "Error!");        
+//}
+
 //       
 // --------------------------ARTISTA------------------
 //        
@@ -125,11 +126,14 @@ class RockolaApplicationTests {
 //          List <Artista> getArtista = artistaService.getArtistaByNombre("Daft Punk");
 //          Assertions.assertTrue(getArtista.size() > 0, "Error, no se encontró el artista");
 //          }
-//        @Test  
-//         void probarDelete(){
-//          Artista borrar = artistaService.deleteArtista("Shakira", "Colombia");
-//          Assertions.assertTrue(borrar.getId() == 1 , "Error, no se puede eliminar el artista");
-//         }
+//          @Test
+//           void probarDeleteArtista(){
+//           String artist = "artista1";
+//           List<Artista> artista = artistaService.getArtistaByNombre(artist);
+//           Artista delete = artistaService.deleteArtista(artist, "Colombia");
+//           List<Artista> borrado = artistaService.getArtistaByNombre(artist);
+//           Assertions.assertTrue(borrado == null, "Error!, el artista no fue borrado"); 
+//           }
 //    ------------------------------GENERO---------------------------- 
 //        @Test
 //        void probarAddGenero(){
@@ -173,10 +177,13 @@ class RockolaApplicationTests {
 //          Genero view = servicioGenero.viewGenero(2);
 //          Assertions.assertTrue(view.getId() == 2 , "Error, el genero no existe");   
 //        }
-//           @Test
-//           void probarDeleteGenero(){
-//          List<Genero> genero = servicioGenero.getGeneroByNombre("Rock");
-//          Genero borrar = genero.
-//          
+//          @Test
+//          void probarDeleteGenero(){
+//          String gen = "Pop";
+//          List<Genero> genero = servicioGenero.getGeneroByNombre(gen);
+//          Genero delete = servicioGenero.deleteGenero(genero); 
+//          List<Genero> borrado = servicioGenero.getGeneroByNombre(gen);
+//          Assertions.assertTrue(borrado == null, "Error!");        
+//}
 }
 
