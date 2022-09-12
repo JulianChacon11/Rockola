@@ -33,19 +33,22 @@ public class MainController {
         }
     @GetMapping("/catrock")
     public String Rock(Model rock){
-        rock.addAttribute("CategoriaRock", servicio.getAllCanciones());
+        rock.addAttribute("CategoriaRock", servicio.getCancionByGenero(4));
         return "catrock";
         }
     @GetMapping("/catpop")
-    public String Pop(){
+    public String Pop(Model pop){
+        pop.addAttribute("CategoriaPop", servicio.getCancionByGenero(1));
         return "catpop";
         }
     @GetMapping("/catelec")
-    public String Electronica(){
+    public String Electronica(Model electronica){
+        electronica.addAttribute("CategoriaElectronica", servicio.getCancionByGenero(2));
         return "catelec";
         }
     @GetMapping("/catragg")
-    public String Raggetton(){
+    public String Raggetton(Model reggeton){
+        reggeton.addAttribute("CategoriaReggeton", servicio.getCancionByGenero(3));
         return "catragg";
         }
     }
