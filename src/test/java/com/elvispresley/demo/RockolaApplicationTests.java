@@ -7,6 +7,7 @@ import com.elvispresley.demo.services.ArtistaService;
 import com.elvispresley.demo.services.CancionService;
 import com.elvispresley.demo.services.GeneroService;
 import java.util.List;
+import java.util.Optional;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,24 +25,24 @@ class RockolaApplicationTests {
         
  // ---------------------------CANCION------------------------     
 	
-       @Test
-	void probarAddCancion() {
-           Cancion c = new Cancion("song3", "3:10", "www.youtube.comk", 1);
-           Cancion guardada = servicio.addCancion(c);
-           Assertions.assertTrue(guardada.getId() > 0, "Error, no se guardó la canción");
-        }
+//       @Test
+//	void probarAddCancion() {
+//           Cancion c = new Cancion("Sweet Child O' Mine", "5:02", "https://www.youtube.com/watch?v=1w7OgIMMRc4", 4);
+//           Cancion guardada = servicio.addCancion(c);
+//           Assertions.assertTrue(guardada.getId() > 0, "Error, no se guardó la canción");
+//        }
 //       @Test
 //        void probarAddCancion(){
-//           Cancion c = new Cancion( "SOMETHING ABOUT US", "3:48", "https://www.youtube.com/watch?v=sOS9aOIXPEk", 2);
+//           Cancion c = new Cancion( "Smells like teen spirit", "4:38", "https://www.youtube.com/watch?v=hTWKbfoikeg", 4);
 //           Cancion guardado = servicio.addCancion(c);
 //           Assertions.assertTrue(guardado.getId() > 0 , "Error, no se guardó la canción");
 //       }
 ////        
 //       @Test
 //        void probarUpdateCancion(){
-//         String nombreNuevo = "SONG45";
-//         Integer generoNuevo = 2;
-//         Cancion update = new Cancion(nombreNuevo, "3:20", "https://www.youtube.comkas,",generoNuevo);
+//         String nombreNuevo = "SONG50";
+//         Integer generoNuevo = 3;
+//         Cancion update = new Cancion(nombreNuevo, "3:10", "https://www.youtube.comka4,",generoNuevo);
 //         update.setId(16);
 //         Cancion guardar = servicio.updateCancion(update);
 //        
@@ -69,21 +70,26 @@ class RockolaApplicationTests {
 //           List <Cancion> getCancion = servicio.getCancionByNombre("Something About Us");
 //          Assertions.assertTrue(getCancion.size() > 0 , "Error, la cancion que busca no existe!");
 //       }
+//        
+//        @Test
+//        void probarGetCancionById(){
+//            List<Cancion> getCancion = servicio.getCancionByGenero(id);
+//            Assertions
+//        }
 //          @Test
 //          void probarDeleteCancion(){
-//          String cancion = "SONG45";
-//          List<Cancion> buscarCancion = servicio.getCancionByNombre(cancion);
-//          Cancion delete = servicio.deleteCancion(cancion, "3:20","https://www.youtube.comkas,", 2); 
-//          List<Cancion> borrado = servicio.getCancionByNombre(cancion);
-//          Assertions.assertTrue(borrado == null, "Error!");        
+//          Integer id = 14;
+//            Optional<Cancion> buscarCancion = servicio.getCancionById(id);
+//            Optional<Cancion> borrado =  servicio.getCancionById(id);
+//          Assertions.assertTrue(borrado.getId()==0, "Error!");        
 //}
 
-//       
+//      
 // --------------------------ARTISTA------------------
 //        
 //        @Test
 //	void probarAddArtista() {
-//            Artista a = new Artista("artista1", "España");
+//            Artista a = new Artista("Guns N' Roses", "Estados Unidos");
 //            Artista guardado = artistaService.addArtista(a);
 //            Assertions.assertTrue(guardado.getId() > 0, "Error, no se guardó la canción");
 //        }
@@ -137,7 +143,7 @@ class RockolaApplicationTests {
 //    ------------------------------GENERO---------------------------- 
 //        @Test
 //        void probarAddGenero(){
-//            Genero g = new Genero("Reggeton");
+//            Genero g = new Genero("Rock");
 //            Genero guardado = servicioGenero.addGenero(g);
 //            Assertions.assertTrue(guardado.getId() > 0, "Error, no se guardó la canción");
 //        }
@@ -163,14 +169,14 @@ class RockolaApplicationTests {
 //        void probarGetAllGeneros(){
 //             List<Genero> generos = servicioGenero.getAllGeneros();
 //             Assertions.assertTrue(generos != null, "Error, no hay datos de género musical");
-//        
+//
 //        }
 //        
 //        @Test
 //        void probarGeneroByNombre(){
 //         List<Genero> getGeneros = servicioGenero.getGeneroByNombre("Electronica");
 //         Assertions.assertTrue(getGeneros.size() > 0, "Error, no se encontró el género");
-//        }
+//        }       
 //        
 //        @Test
 //        void probarViewGenero(){
@@ -179,11 +185,8 @@ class RockolaApplicationTests {
 //        }
 //          @Test
 //          void probarDeleteGenero(){
-//          String gen = "Pop";
-//          List<Genero> genero = servicioGenero.getGeneroByNombre(gen);
-//          Genero delete = servicioGenero.deleteGenero(genero); 
-//          List<Genero> borrado = servicioGenero.getGeneroByNombre(gen);
-//          Assertions.assertTrue(borrado == null, "Error!");        
+//           List<Genero> getGeneros = servicioGenero.getGeneroById(1);
+//           Genero borrarGenero = servicioGenero.deleteGenero();
 //}
 }
-
+  

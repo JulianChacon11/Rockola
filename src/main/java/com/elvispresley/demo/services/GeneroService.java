@@ -8,6 +8,7 @@ package com.elvispresley.demo.services;
 import com.elvispresley.demo.entities.Genero;
 import com.elvispresley.demo.repositories.IGeneroRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -67,6 +68,11 @@ public class GeneroService {
     public List<Genero> getGeneroByNombre(String nombre){
         List<Genero> generos = generoRepository.findGeneroByNombreContaining(nombre);
         return generos;
+    }
+    
+    public List<Genero> getGeneroById(Integer id){
+        List<Genero> generos = (List<Genero>) generoRepository.findById(id).get();
+        return generos;   
     }
     
     /**
