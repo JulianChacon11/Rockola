@@ -4,30 +4,63 @@
  */
 package com.elvispresley.demo.entities;
 
+import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author andreastefannygarciamejia
+ * 
  */
-class Playlist {
+
+@Entity
+@Table(name = "tplaylists")
+public class Playlist implements Serializable {
     
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name;
-    private List<Cancion> cancion;
-    private int idClient;
-    //private int duracion;
+    
+    @Column(name = "nombre", length = 20, nullable = false)
+    private String nombre;
+    
+    @ManyToMany
+    @JoinTable(name = "tplaylists_canciones",
+        joinColumns = @JoinColumn(name = "id_playlist"),
+        inverseJoinColumns = @JoinColumn(name="id_cancion"))
+    private List <Cancion> cancion;
+    
+    @ManyToOne(cascade=CascadeType.ALL)
+    @Column(name = "id_cliente")
+    private Cliente cliente;
 
     public Playlist() {
+        
     }
 
-    public Playlist(int id, String name) {
+    public Playlist(int id, String nombre, List<Cancion> cancion, Cliente cliente) {
         this.id = id;
-        this.name = name;
+        this.nombre = nombre;
+        this.cancion = cancion;
+        this.cliente = cliente;
     }
 
-    public Playlist(String name) {
-        this.name = name;
+    public Playlist(String nombre, List<Cancion> cancion, Cliente cliente) {
+        this.nombre = nombre;
+        this.cancion = cancion;
+        this.cliente = cliente;
     }
 
     public int getId() {
@@ -38,31 +71,30 @@ class Playlist {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public List<Cancion> getCanciones() {
+    public List<Cancion> getCancion() {
         return cancion;
     }
 
-    public void setCanciones(List<Cancion> canciones) {
-        this.cancion = canciones;
+    public void setCancion(List<Cancion> cancion) {
+        this.cancion = cancion;
     }
 
-    /*
-    public int getDuracion() {
-        return duracion;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setDuracion(int duracion) {
-        this.duracion = duracion;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
-    */
+    
     
 }
 
