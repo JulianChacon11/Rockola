@@ -23,14 +23,14 @@ class RockolaApplicationTests {
         @Autowired ArtistaService artistaService;
         
 //         -------------------CANCION-------------
-	
-        @Test
-	void probarAddCancion() {
-            Cancion c = new Cancion("Monkey Dance", "3:28", "https://www.youtube.com/watch?v=bqaQLeNAs2M", 1);
-            Cancion guardada = servicio.addCancion(c);
-            Assertions.assertTrue(guardada.getId() > 0, "Error, no se guardó la canción");
-        }       
-       
+//	
+//        @Test
+//	void probarAddCancion() {
+//            Cancion c = new Cancion("Monkey Dance", "3:28", "https://www.youtube.com/watch?v=bqaQLeNAs2M", 1);
+//            Cancion guardada = servicio.addCancion(c);
+//            Assertions.assertTrue(guardada.getId() > 0, "Error, no se guardó la canción");
+//        }
+//              
 //        @Test
 //        void probarUpdateCancion(){
 //         String nombreNuevo = "SONG50";
@@ -42,11 +42,11 @@ class RockolaApplicationTests {
 //         Cancion update2 = (Cancion) servicio.getCancionByNombre(nombreNuevo);
 //         Assertions.assertTrue(update2.getNombre() == nombreNuevo, "Error, no se actualizo el campo");
 //        }
-//        
+        
 //        @Test
 //        void probarGetAllCanciones(){
 //          List<Cancion> allCanciones = servicio.getAllCanciones();
-//          Assertions.assertTrue( allCanciones != null , "Error, no hay canciones en la lista");
+//          Assertions.assertNotNull(allCanciones, "Error, no existen canciones en la lista");
 //        }
 //        
 //        @Test
@@ -62,19 +62,14 @@ class RockolaApplicationTests {
 //          Assertions.assertTrue(getCancion.size() > 0 , "Error, la cancion que busca no existe!");
 //       }
 //        
-//        @Test
-//        void probarGetCancionById(){
-//          Integer id = 12;
-//          List<Cancion> getCancion = servicio.getCancionById(id);
-//          Assertions.assertTrue(getCancion.size() > 0, "Error, no se encontró la canción");
-//        }
 //          @Test
 //          void probarDeleteCancion(){
 //            Integer id = 12;
 //            List<Cancion> getCancion = servicio.getCancionById(id);
 //            boolean borrar = servicio.deleteCancion(id);
 //            Assertions.assertNull(borrar);
-//          }
+//          
+//        }       
 //   --------------------ARTISTA-----------------------------     
 //        @Test
 //	void probarAddArtista() {

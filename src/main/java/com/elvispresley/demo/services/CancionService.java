@@ -41,10 +41,10 @@ public class CancionService {
     }
     
     public List<Cancion> getCancionByNombre(String nombre){
-        List<Cancion> canciones = cancionRepository.findCancionByNombreContaining(nombre);
+        List<Cancion> canciones = cancionRepository.findCancionByContaining(nombre);
         return canciones;
     }
     public void deleteCancion(Cancion c){
-        cancionRepository.deleteById(c.getId());
+        
     }
 }
