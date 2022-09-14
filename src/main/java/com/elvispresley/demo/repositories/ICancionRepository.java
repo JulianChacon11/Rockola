@@ -19,4 +19,5 @@ public interface ICancionRepository extends JpaRepository<Cancion, Integer>{
     
     public List<Cancion> findCancionByNombreContaining(String nombre);
     public List<Cancion> findCancionById(int id);
+    public List<Cancion> findCancionByIdGenero(int id_genero);
 }

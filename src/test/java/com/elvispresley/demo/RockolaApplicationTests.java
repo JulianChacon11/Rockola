@@ -69,6 +69,12 @@ class RockolaApplicationTests {
 //            Assertions.assertNotNull(getCancion, "Error, no se encontró canción");
 //        }
 //        
+//        @Test
+//        void probarGetCancionByIdGenero(){
+//            int id = 2;
+//            List<Cancion> getCancion = servicio.getCancionByIdGenero(id);
+//            Assertions.assertNotNull(getCancion, "Error!");
+//       }
 //          @Test
 //          void probarDeleteCancion(){
 //            Integer id = 22;
