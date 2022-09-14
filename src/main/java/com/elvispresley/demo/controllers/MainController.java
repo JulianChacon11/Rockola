@@ -6,6 +6,7 @@
 package com.elvispresley.demo.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
@@ -28,19 +29,23 @@ public class MainController {
         return "registro";
         }
     @GetMapping("/catrock")
-    public String Rock(){
+    public String Rock(Model rock){
+        rock.addAttribute("catrock", null);
         return "catrock";
         }
     @GetMapping("/catpop")
-    public String Pop(){
+    public String Pop(Model pop){
+        pop.addAttribute("catpop", null);
         return "catpop";
         }
     @GetMapping("/catelec")
-    public String Electronica(){
+    public String Electronica(Model elec){
+        elec.addAttribute("catelec", null);
         return "catelec";
         }
     @GetMapping("/catragg")
-    public String Raggetton(){
+    public String Raggetton(Model ragg){
+        ragg.addAttribute("catragg", null);
         return "catragg";
         }
     }
