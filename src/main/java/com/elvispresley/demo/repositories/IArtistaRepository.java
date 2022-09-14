@@ -16,4 +16,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface IArtistaRepository extends JpaRepository<Artista, Integer> {
     
     public List<Artista> findArtistaByNombreContaining(String nombre);
+    public List<Artista> findArtistaById(int id);
+    public List<Artista> findArtistaByNacionalidad(String nacionalidad);
 }
