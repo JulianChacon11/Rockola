@@ -51,10 +51,10 @@ public class CancionService {
         return canciones;
     }
     
-    public List<Cancion> getCancionByIdGenero(Genero id){
-        List<Cancion> canciones = cancionRepository.findCancionByIdGenero(id);
-        return canciones;
-    }
+//    public List<Cancion> getCancionByIdGenero(Genero id){
+//        List<Cancion> canciones = cancionRepository.findCancionByIdGenero(id);
+//        return canciones;
+//    }
     public boolean deleteCancion(int id){
        Cancion c = cancionRepository.findById(id).orElse(null);
        if(c == null){
