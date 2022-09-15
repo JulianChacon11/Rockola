@@ -71,7 +71,8 @@ public class Cliente implements Serializable {
         this.userStatus = userStatus;
     }
 
-    public Cliente(String name, String lastName, String email, LocalDate dateOfBirth, String phone, String gender, String nationality, boolean userStatus) {
+    public Cliente(String name, String lastName, String email, LocalDate dateOfBirth, 
+            String phone, String gender, String nationality, boolean userStatus) {
         this.name = name;
         this.lastName = lastName;
         this.email = email;

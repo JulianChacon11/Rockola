@@ -25,7 +25,7 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "tplaylists")
+@Table(name = "tplaylists", schema = "elvispresley")
 public class Playlist implements Serializable {
     
     @Id
@@ -43,7 +43,7 @@ public class Playlist implements Serializable {
     private List <Cancion> cancion;
     
     @ManyToOne(cascade=CascadeType.ALL)
-    @Column(name = "id_cliente")
+    @JoinColumn(name = "id_cliente")
     private Cliente cliente;
 
     public Playlist() {
