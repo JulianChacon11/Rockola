@@ -40,7 +40,7 @@ public class Playlist implements Serializable {
     @JoinTable(name = "tplaylists_canciones",
         joinColumns = @JoinColumn(name = "id_playlist"),
         inverseJoinColumns = @JoinColumn(name="id_cancion"))
-    private List <Cancion> cancion;
+    private List <Cancion> canciones;
     
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "id_cliente")
@@ -50,16 +50,16 @@ public class Playlist implements Serializable {
         
     }
 
-    public Playlist(int id, String nombre, List<Cancion> cancion, Cliente cliente) {
+    public Playlist(int id, String nombre, List<Cancion> canciones, Cliente cliente) {
         this.id = id;
         this.nombre = nombre;
-        this.cancion = cancion;
+        this.canciones = canciones;
         this.cliente = cliente;
     }
 
-    public Playlist(String nombre, List<Cancion> cancion, Cliente cliente) {
+    public Playlist(String nombre, List<Cancion> canciones, Cliente cliente) {
         this.nombre = nombre;
-        this.cancion = cancion;
+        this.canciones = canciones;
         this.cliente = cliente;
     }
 
@@ -79,12 +79,12 @@ public class Playlist implements Serializable {
         this.nombre = nombre;
     }
 
-    public List<Cancion> getCancion() {
-        return cancion;
+    public List<Cancion> getCanciones() {
+        return canciones;
     }
 
-    public void setCancion(List<Cancion> cancion) {
-        this.cancion = cancion;
+    public void setCancion(List<Cancion> canciones) {
+        this.canciones = canciones;
     }
 
     public Cliente getCliente() {

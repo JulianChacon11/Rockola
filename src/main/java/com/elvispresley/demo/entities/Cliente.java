@@ -39,7 +39,7 @@ public class Cliente implements Serializable {
     @Column(name = "email", length = 100, nullable = false, unique = true)
     private String email;
     
-    @Column(name = "dateOfBirth", nullable = false)
+    @Column(name = "date_of_birth", nullable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfBirth;
     
@@ -52,7 +52,7 @@ public class Cliente implements Serializable {
     @Column(name = "nationality", length = 20, nullable = false)
     private String nationality;
     
-    @Column(name = "userStatus", nullable = false, columnDefinition = "TINYINT", length = 1)
+    @Column(name = "user_status", nullable = false, columnDefinition = "TINYINT")
     private boolean userStatus;
 
     public Cliente() {

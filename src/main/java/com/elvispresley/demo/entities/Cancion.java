@@ -6,6 +6,7 @@
 package com.elvispresley.demo.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,6 +14,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 /**
@@ -42,7 +45,12 @@ public class Cancion {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_genero", insertable = false, updatable = false)
     private Genero genero;
-
+    
+    @ManyToMany
+    @JoinTable(name = "tplaylists_canciones",
+        joinColumns = @JoinColumn(name = "id_cancion"),
+        inverseJoinColumns = @JoinColumn(name="id_playlist"))
+    List <Playlist> playlists;
     
     public Cancion() {
     }

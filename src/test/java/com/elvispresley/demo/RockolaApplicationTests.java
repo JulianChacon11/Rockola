@@ -11,6 +11,7 @@ import com.elvispresley.demo.services.GeneroService;
 import com.elvispresley.demo.services.PlaylistService;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -19,6 +20,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class RockolaApplicationTests {
+        /*
         @Autowired
         private CancionService servicio;
         
@@ -27,7 +29,8 @@ class RockolaApplicationTests {
         
         @Autowired 
         private ArtistaService artistaService;
-        
+        */
+    
         @Autowired 
         private PlaylistService playlistServicio;
         
@@ -42,29 +45,19 @@ class RockolaApplicationTests {
             
             Playlist plGuardada = playlistServicio.crearNuevaPlaylist(pl);
             
-            Assertions.assertTrue(plGuardada.getId() > 0, "Error, no se guardó la playlist");
-            
+            Assertions.assertTrue(plGuardada.getId() > 0, 
+                    "*** Error *** /nPlaylist no guardada");  
         }
-	
-//        @Test
-//	void probarAddCancion() {
-//            Cancion c = new Cancion("Camisa Negra", "3:30", "www.youtube.com", 1);
-//            Cancion guardada = servicio.addCancion(c);
-//            Assertions.assertTrue(guardada.getId() > 0, "Error, no se guardó la canción");
-//        }
-//        
-//        @Test
-//	void probarAddArtista() {
-//            Artista a = new Artista("Shakira", "Colombia");
-//            Artista guardado = artistaService.addArtista(a);
-//            Assertions.assertTrue(guardado.getId() > 0, "Error, no se guardó la canción");
-//        }
-////        
-//        @Test
-//        void probarAddGenero(){
-//            Genero g = new Genero("Rock");
-//            Genero guardado = servicioGenero.addGenero(g);
-//            Assertions.assertTrue(guardado.getId() > 0, "Error, no se guardó la canción");
-//        }
+        
+        @Test
+        @Disabled
+        void probarConsultarPlaylistExistente(){
+            List<Playlist> listaPlaylists = playlistServicio.consultarPlaylist("boleritos");
+            Assertions.assertTrue(!listaPlaylists.isEmpty(),
+                    "*** Error *** /nPlaylist no encontrada");
+        }
+        
+        
+
 
 }

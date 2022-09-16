@@ -23,7 +23,6 @@ public class PlaylistService {
     private IPlaylistRepository playlistRepository;
     
     public Playlist crearNuevaPlaylist(Playlist playlist){
-        
         Playlist pl = playlistRepository.save(playlist);
         return pl;
     }
@@ -43,6 +42,14 @@ public class PlaylistService {
         List<Playlist> listaPlaylist;
         listaPlaylist = playlistRepository.findPlaylistByNombreContaining(criterio);
         return listaPlaylist;
+    }
+    
+    public void eliminarPlaylist(int id){
+        
+    }
+    
+    public void actualizarPlaylist(int id){
+        
     }
 
     
