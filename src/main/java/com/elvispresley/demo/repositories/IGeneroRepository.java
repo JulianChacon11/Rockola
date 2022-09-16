@@ -19,4 +19,5 @@ import org.springframework.stereotype.Repository;
 public interface IGeneroRepository extends JpaRepository<Genero, Integer>{
     
     public List<Genero> findGeneroByNombreContaining(String nombre);
+    public List<Genero> findGeneroById(int id);
 }

@@ -70,14 +70,22 @@ public class GeneroService {
         return generos;
     }
     
+    public List<Genero> getGeneroById(int id){
+        List<Genero> generos = generoRepository.findGeneroById(id);
+        return generos;
+    }
+    
     /**
      * Metodo para elminar un genero por id
      * @param g, el genero a eliminar
      */
-    public void deleteGenero(Genero g){
-        generoRepository.deleteById(g.getId());
-    }
-    
-    
-    
-}
+    public boolean deleteGenero(int id){
+        Genero generos = generoRepository.findById(id).orElse(null);
+        if(generos == null){
+            return false;
+        }else{
+            generoRepository.delete(generos);
+            return true;
+        }
+    }   
+}    
