@@ -23,7 +23,7 @@ import javax.persistence.Table;
  * @author andreastefannygarciamejia
  * 
  */
-
+//
 @Entity
 @Table(name = "tplaylists", schema = "elvispresley")
 public class Playlist implements Serializable {

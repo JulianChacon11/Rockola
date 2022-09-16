@@ -15,6 +15,7 @@ import javax.persistence.Id;
  *Clase para la gestíón de generos
  * @author Julian Chacon
  */
+//
 @Entity(name = "tgeneros")
 public class Genero {
     

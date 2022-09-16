@@ -19,6 +19,7 @@ import org.springframework.format.annotation.DateTimeFormat;
  *
  * @author andreastefannygarciamejia
  */
+//
 @Entity
 @Table(name = "tadministradores")
 public class Administrador implements Serializable {

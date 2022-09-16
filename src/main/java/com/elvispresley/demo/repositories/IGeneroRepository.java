@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
  *Interfaz del repositorio de generos
  * @author Julian Chacon
  */
+//
 @Repository
 public interface IGeneroRepository extends JpaRepository<Genero, Integer>{
     

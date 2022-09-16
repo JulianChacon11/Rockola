@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
  *Interfaz para el repositorio de artistas
  * @author Julian Chacon
  */
+//
 @Repository
 public interface IArtistaRepository extends JpaRepository<Artista, Integer> {
     
