@@ -23,5 +23,6 @@
 hs_err_pid*
 replay_pid*
 
-# Incluir carpeta target #
-target/
+# Agregar archivos target
+*/target/*
+target/*

@@ -55,5 +55,10 @@ public class MainController {
         ragg.addAttribute("/catragg", servicio.getAllCanciones());
         return "catragg";
         }
+     @GetMapping("/playlist")
+    public String PlayList(){
+        return "playlist";
+        }
+    
     }
 
