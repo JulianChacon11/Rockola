@@ -43,5 +43,10 @@ public class MainController {
     public String Raggetton(){
         return "catragg";
         }
+     @GetMapping("/playlist")
+    public String PlayList(){
+        return "playlist";
+        }
+    
     }
 
