@@ -34,6 +34,7 @@ class RockolaApplicationTests {
         @Autowired 
         private PlaylistService playlistServicio;
         
+<<<<<<< Updated upstream
         @Test
         @Disabled
         void probarCrearPlaylist(){
@@ -48,6 +49,28 @@ class RockolaApplicationTests {
             Assertions.assertTrue(plGuardada.getId() > 0, 
                     "*** Error *** /nPlaylist no guardada");  
         }
+=======
+//         -------------------CANCION-------------
+//	
+        @Test
+	void probarAddCancion() {
+            Cancion c = new Cancion("Monkey Dance", "3:26", "https://www.youtube.comka5", 1);
+            Cancion guardada = servicio.addCancion(c);
+            Assertions.assertTrue(guardada.getId() > 0, "Error, no se guardó la canción");
+        }
+//              
+//        @Test
+//        void probarUpdateCancion(){
+//         String nombreNuevo = "Something About Us";
+//         Integer generoNuevo = 2;
+//         Cancion update = new Cancion(nombreNuevo, "3:10", "https://www.youtube.comka4,",generoNuevo);
+//         update.setId(16);
+//         Cancion guardar = servicio.updateCancion(update);
+//        
+//         Cancion update2 = (Cancion) servicio.getCancionByNombre(nombreNuevo);
+//         Assertions.assertTrue(update2.getNombre() == nombreNuevo, "Error, no se actualizo el campo");
+//        }
+>>>>>>> Stashed changes
         
         @Test
         @Disabled
