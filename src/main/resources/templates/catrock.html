@@ -51,47 +51,28 @@
                         </div>
                         </div>
                 </div>
-
-
-            <div class="album-list-music">
-                <ul class="list-music" id="lista-music">
-
-                    <li class="music">
-                        <a href="#" class="btn play-music"><i class="far fa-play-circle"></i></a>
-                        <h3>Nombre de artista</h3>
-                        <h3 class="name" id="name">Nombre de musica</h3>
-                        <h3 class="time">1.44 s</h3>
-                    </li>
-                  <li class="music">
-                        <a href="#" class="btn play-music"><i class="far fa-play-circle"></i></a>
-                        <h3>Nombre de artista</h3>
-                        <h3 class="name" id="name">Nombre de musica</h3>
-                        <h3 class="time">1.44 s</h3>
-                    </li>
-                  <li class="music">
-                        <a href="#" class="btn play-music"><i class="far fa-play-circle"></i></a>
-                        <h3>Nombre de artista</h3>
-                        <h3 class="name" id="name">Nombre de musica</h3>
-                        <h3 class="time">1.44 s</h3>
-                    </li>
-                  <li class="music">
-                        <a href="#" class="btn play-music"><i class="far fa-play-circle"></i></a>
-                        <h3>Nombre de artista</h3>
-                        <h3 class="name" id="name">Nombre de musica</h3>
-                        <h3 class="time">1.44 s</h3>
-                    </li>
-                  <li class="music">
-                        <a href="#" class="btn play-music"><i class="far fa-play-circle"></i></a>
-                        <h3>Nombre de artista</h3>
-                        <h3 class="name" id="name">Nombre de musica</h3>
-                        <h3 class="time">1.44 s</h3>
-                    </li>
-
-
-                </ul>
-            </div>
-        </div>
-        </div>
+<table>
+  <thead>
+    <tr>
+  <th scope="col">id</th>
+  <th scope="col">nombre</th>
+  <th scope="col">duracion</th>
+  <th scope="col">link</th>
+  <th scope="col">id_genero</th>
+  <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:if="${not #lists.isEmpty(Cancion)}" th:each="Cancion:${Cancion}">
+      <td scope = "row" th:text="${Cancion.id}">...</td>
+      <td th:text = "${Cancion.nombre}">...</td>
+        <td th:text = "${Cancion.duracion}">...</td>
+          <td th:text = "${Cancion.link}">...</td>
+            <td th:text = "${Cancion.id_genero}">...</td>
+              
+    </tr>
+  </tbody>
+</table>
 
         <div class="reproducir">
             <div class="controles" id="controles">
