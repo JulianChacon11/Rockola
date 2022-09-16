@@ -4,10 +4,16 @@
  */
 package com.elvispresley.demo.services;
 
+import com.elvispresley.demo.repositories.IClienteRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  *
- * @author andreastefannygarciamejia
+ * @author diegocabrera
  */
-class Public {
+public class ClienteService {
+    @Autowired
+    private IClienteRepository clienteRepository;
+    
     
 }

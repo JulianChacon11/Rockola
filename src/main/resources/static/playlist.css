@@ -95,10 +95,10 @@ este es el corazon*/
     color: #fff;
 }
 .album{
-  background: #360033;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #0b8793, #360033);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #0b8793, #360033); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-background-size:cover;
+  background: #654ea3;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #eaafc8, #654ea3);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #eaafc8, #654ea3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-size:cover;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -169,7 +169,7 @@ fieldset{
 input. button{
   position: right;
   width: 200px
-  height: 50px;
+  height:50px;
   padding: 0;
 }
 input{
@@ -336,9 +336,10 @@ input:focus + button .fa{
     justify-content: center;
     align-items: center;
 		/*aqui el background del footer*/
-    background: #780206;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #061161, #780206);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #061161, #780206); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #ad5389;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #3c1053, #ad5389);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #3c1053, #ad5389); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 
 	margin-top: 6px;
 }

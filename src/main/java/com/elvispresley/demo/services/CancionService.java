@@ -6,7 +6,6 @@
 package com.elvispresley.demo.services;
 
 import com.elvispresley.demo.entities.Cancion;
-import com.elvispresley.demo.entities.Genero;
 import com.elvispresley.demo.repositories.ICancionRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,23 +44,7 @@ public class CancionService {
         List<Cancion> canciones = cancionRepository.findCancionByNombreContaining(nombre);
         return canciones;
     }
-    
-    public List<Cancion> getCancionById(int id){
-        List<Cancion> canciones = cancionRepository.findCancionById(id);
-        return canciones;
-    }
-    
-//    public List<Cancion> getCancionByIdGenero(Genero id){
-//        List<Cancion> canciones = cancionRepository.findCancionByIdGenero(id);
-//        return canciones;
-//    }
-    public boolean deleteCancion(int id){
-       Cancion c = cancionRepository.findById(id).orElse(null);
-       if(c == null){
-           return false;
-       }else{
-           cancionRepository.delete(c);
-           return true; 
-       }      
+    public void deleteCancion(Cancion c){
+        cancionRepository.deleteById(c.getId());
     }
 }
