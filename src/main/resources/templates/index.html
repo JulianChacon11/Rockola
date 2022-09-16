@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="https://www.thymeleaf.org/">
   <head>
     <title>ROCKOLA</title>
 
@@ -55,52 +55,142 @@
 
       <div class="index-container">
         <div class="index-index">
-          <span class="index-text"><span>SUGERENCIAS</span></span>
+          <input class= "rectangulo-buscador" type="text" id="buscador" name="buscador"><br>
+          <button class="boton-buscador">BUSCAR</button>
 
-          <img
-            src="/public/playground_assets/rectangle112-j2n-1200h.png"
-            alt="Rectangle112"
-            class="index-rectangle1"
-          />
-          <a href="/catragg">
-            <span class="index-text02"><span>Reggaetón</span></span>
-            <img
-            src="/public/playground_assets/rectangle5216-2sd-200h.png"
-            alt="Rectangle5216"
-            class="index-rectangle5"
-            />
-          </a>
-          <a href="/catrock">
-            <span class="index-text04"><span>Rock</span></span>
-            <img
-            src="/public/playground_assets/rectangle6222-6yi4-200h.png"
-            alt="Rectangle6222"
-            class="index-rectangle6"
-            />
-          </a>
-          <a href="/catpop">
-            <span class="index-text06"><span>Pop</span></span>
-            <img
-            src="/public/playground_assets/rectangle7224-yg9e-200h.png"
-            alt="Rectangle7224"
-            class="index-rectangle7"
-            />
-          </a>
-          <a href="/catelec">
-            <span class="index-text08"><span>Electrónica</span></span>
-            <img
-            src="/public/playground_assets/rectangle8226-tyye-200h.png"
-            alt="Rectangle8226"
-            class="index-rectangle8"
-            />
-          </a>
+          <span class="index-text">SUGERENCIAS</span>
+          
+          <table class="tabla-generos">
+              <tr>
+                  <td style="width:200px; height:30px">
+                      <span class="index-text06">GÉNEROS</span>
+                  </td>
+              </tr>
+                <tr>
+                    <td style="width: 200px; height: 100px">
+                        <a href="/catragg">
+                            <img
+                            src="/public/playground_assets/feid.jpg"
+                            alt="ImagenReggaeton"
+                            class="index-rectangle5"
+                            />
+                        </a>
+                    </td>
+                    <td style="width: 200px; height: 100px">
+                        <a href="/catrock">
+                            <img
+                            src="/public/playground_assets/nirvana.jpg"
+                            alt="ImagenRock"
+                            class="index-rectangle5"
+                            />
+                        </a>
+                    </td>
+                    <td style="width: 200px; height: 100px">
+                        <a href="/catpop">
+                            <img
+                            src="/public/playground_assets/lady_gaga.jpg"
+                            alt="ImagenPop"
+                            class="index-rectangle5"
+                            />
+                        </a>
+                    </td>
+                    <td style="width: 200px; height: 100px">
+                        <a href="/catelec">
+                            <img
+                            src="/public/playground_assets/flume.jpg"
+                            alt="ImagenElectronica"
+                            class="index-rectangle5"
+                            />
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="/catragg">
+                            <span class="index-text02">Reggaetón</span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/catrock">
+                            <span class="index-text02">Rock</span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/catpop">
+                            <span class="index-text02">Pop</span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/catelec">
+                            <span class="index-text02">Electrónica</span>
+                        </a>
+                    </td>
+                </tr>
+                    
+              </table>
+          
+          <table class="tabla-artistas">
+              <tr>
+                  <td style="width:200px; height:30px">
+                      <span class="index-text06">ARTISTAS</span>
+                  </td>
+              </tr>
+                <tr>
+                    <td style="width: 200px; height: 100px">
+                        <img
+                        src="/public/playground_assets/Elvis_Presley.jpg"
+                        alt="ElvisPresley"
+                        class="index-rectangle5"
+                        />
+                    </td>
+                    <td style="width: 200px; height: 100px">
+                        <img
+                        src="/public/playground_assets/madonna.jpg"
+                        alt="Madonna"
+                        class="index-rectangle5"
+                        />
+                    </td>
+                    <td style="width: 200px; height: 100px">
+                        <img
+                        src="/public/playground_assets/bad_bunny.jpg"
+                        alt="BadBunny"
+                        class="index-rectangle5"
+                        />
+                    </td>
+                    <td style="width: 200px; height: 100px">
+                        <img
+                        src="/public/playground_assets/diplo.jpg"
+                        alt="Diplo"
+                        class="index-rectangle5"
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="index-text02">Elvis Presley</span>
+                    </td>
+                    <td>
+                        <span class="index-text02">Madonna</span>
+                    </td>
+                    <td>
+                        <span class="index-text02">Bad Bunny</span>
+                    </td>
+                    <td>
+                        <span class="index-text02">Diplo</span>
+                    </td>
+                </tr>
+                    
+              </table>
+
+          <canvas id="RectanguloMenu" class="rectangulo-menu"></canvas>
+
           <img
             src="/public/playground_assets/rectangle428-nc4-200h.png"
             alt="Rectangle428"
             class="index-rectangle4"
           />
           <a href="/registro">
-            <span class="index-text10"><span>REGISTRARSE</span></span>
+            <span class="index-text10">REGISTRARSE</span>
           </a>
           <img
             src="/public/playground_assets/rectangle326-vpvu-200h.png"
@@ -108,25 +198,27 @@
             class="index-rectangle3"
           />
           <a href="/login">
-            <span class="index-text12"><span>INICIAR SESIÓN</span></span>
+            <span class="index-text12">INICIAR SESIÓN</span>
           </a>
           <a href="/">
-            <span class="index-text14"><span>ROCKOLA</span></span>
+            <span class="texto-rockola">ROCKOLA</span>
           </a>
-          <span class="index-text16"><span>CANCIONES</span></span>
-          <span class="index-text18"><span>ARTISTAS</span></span>
-          <span class="index-text20"><span>GÉNEROS</span></span>
-          <span class="index-text22"><span>PLAYLISTS</span></span>
+          <span class="index-text16">CANCIONES</span>
+          <span class="index-text18">ARTISTAS</span>
+          <span class="index-text20">GÉNEROS</span>
+          <a href="/playlist">
+            <span class="index-text22">PLAYLISTS</span>
+          </a>
           <div class="index-reproductor">
             <img
               src="/public/playground_assets/rectangle9442-canp-200h.png"
-              alt="Rectangle9442"
+              alt="RectanguloBaseReproductor"
               class="index-rectangle9"
             />
             <div class="index-container1">
               <img
                 src="/public/playground_assets/rectangle116017-zajc-200h.png"
-                alt="Rectangle116017"
+                alt="circuloReproductor"
                 class="index-rectangle11"
               />
               <img
@@ -159,8 +251,8 @@
                 class="index-polygon21"
               />
             </div>
-            <span class="index-text24"><span>Nombre Canción</span></span>
-            <span class="index-text26"><span>Artista</span></span>
+            <span class="index-text24">Nombre Canción</span>
+            <span class="index-text26">Artista</span>
           </div>
         </div>
       </div>
