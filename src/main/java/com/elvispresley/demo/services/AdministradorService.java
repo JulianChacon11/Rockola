@@ -4,11 +4,18 @@
  */
 package com.elvispresley.demo.services;
 
-import com.elvispresley.demo.repositories.IClienteRepository;
+import com.elvispresley.demo.repositories.IAdministradorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
-class Public {
-@Autowired
-    private IClienteRepository clienteRepository;
+/**
+ *
+ * @author diegocabrera
+ */
+public class AdministradorService {
+ //   
+    @Autowired
+    private IAdministradorRepository administradorRepository;
+    
+    
     
 }
