@@ -24,10 +24,15 @@ DROP TABLE IF EXISTS `tadministradores`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tadministradores` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `id_usuario` int NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK_Admin_User_idx` (`id_usuario`),
-  CONSTRAINT `FK_Administradores_Usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tusuarios` (`id`)
+  `name` varchar(50) NOT NULL,
+  `lastname` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `date_of_birth` date NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `nationality` varchar(30) NOT NULL,
+  `user_status` tinyint NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -130,11 +135,16 @@ DROP TABLE IF EXISTS `tclientes`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tclientes` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `id_usuario` int NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK_Client_User_idx` (`id_usuario`),
-  CONSTRAINT `FK_Clientes_Usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tusuarios` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `name` varchar(50) NOT NULL,
+  `lastname` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `date_of_birth` date NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `nationality` varchar(30) NOT NULL,
+  `user_status` tinyint NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -143,6 +153,7 @@ CREATE TABLE `tclientes` (
 
 LOCK TABLES `tclientes` WRITE;
 /*!40000 ALTER TABLE `tclientes` DISABLE KEYS */;
+INSERT INTO `tclientes` VALUES (1,'Juan','Hernández','abcd@gmail.com','2022-09-15','4436785678','male','mexican',1);
 /*!40000 ALTER TABLE `tclientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -212,7 +223,7 @@ CREATE TABLE `tplaylists` (
   PRIMARY KEY (`id`),
   KEY `FK_Playlist_Client_idx` (`id_cliente`),
   CONSTRAINT `FK_Playlist_Cliente` FOREIGN KEY (`id_cliente`) REFERENCES `tclientes` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -221,6 +232,7 @@ CREATE TABLE `tplaylists` (
 
 LOCK TABLES `tplaylists` WRITE;
 /*!40000 ALTER TABLE `tplaylists` DISABLE KEYS */;
+INSERT INTO `tplaylists` VALUES (1,'Boleritos',1);
 /*!40000 ALTER TABLE `tplaylists` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -264,13 +276,14 @@ CREATE TABLE `tusuarios` (
   `name` varchar(50) NOT NULL,
   `lastname` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `dateOfBirth` date NOT NULL,
+  `date_of_birth` date NOT NULL,
   `phone` varchar(20) NOT NULL,
   `gender` varchar(10) NOT NULL,
   `nationality` varchar(30) NOT NULL,
-  `userStatus` tinyint(1) NOT NULL,
+  `user_status` tinyint NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `email_UNIQUE` (`email`)
+  UNIQUE KEY `email_UNIQUE` (`email`),
+  UNIQUE KEY `phone_UNIQUE` (`phone`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -292,4 +305,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-10 17:51:41
+-- Dump completed on 2022-09-15 20:02:12
