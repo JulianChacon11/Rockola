@@ -45,11 +45,12 @@ public class PlaylistService {
     }
     
     public void eliminarPlaylist(int id){
-        
+        playlistRepository.deleteById(id);
     }
     
-    public void actualizarPlaylist(int id){
-        
+    public Playlist actualizarPlaylist(Playlist playlist){
+        Playlist plUp = playlistRepository.save(playlist);
+        return plUp;
     }
 
     

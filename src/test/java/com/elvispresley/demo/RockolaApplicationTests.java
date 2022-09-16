@@ -20,19 +20,57 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class RockolaApplicationTests {
-        /*
         @Autowired
-        private CancionService servicio;
+        private CancionService cancionServicio;
         
         @Autowired
-        private GeneroService servicioGenero;
+        private GeneroService generoServicio;
         
         @Autowired 
-        private ArtistaService artistaService;
-        */
+        private ArtistaService artistaServicio;
     
         @Autowired 
         private PlaylistService playlistServicio;
+        
+        @Test
+        @Disabled
+	void probarAddGenero() {
+            Genero genero = new Genero("Boleros");
+            Genero generoGuardado = generoServicio.addGenero(genero);
+            Assertions.assertTrue(generoGuardado.getId() > 0, 
+                    "*** Error *** /nGénero no guardada");
+        }
+        
+        @Test
+        @Disabled       
+	void probarAddCancion() {
+            Cancion cancion = new Cancion("Por debajo de la mesa", "3:26", "https://www.youtube.com");
+            Cancion cancionGuardada = cancionServicio.addCancion(cancion);
+            Assertions.assertTrue(cancionGuardada.getId() > 0, 
+                    "*** Error *** /nCanción no guardada");
+        }
+        
+        @Test
+        @Disabled
+	void probarEliminarCancion() {
+            //Eliminar canción con el id 4
+            Cancion cancion = cancionServicio.getCancionByNombre("Por debajo").get(0);
+            cancionServicio.deleteCancion(cancion);
+            List<Cancion> canciones = cancionServicio.getAllCanciones();
+            Assertions.assertTrue(!canciones.contains(cancion), 
+                    "*** Error *** /nCanción no eliminada");
+        }
+        
+        @Test
+        @Disabled
+	void probarAddCancion2() {
+            Genero genero = generoServicio.getAllGeneros().get(0);
+            Cancion cancion = new Cancion("Bésame mucho", "3:26", "https://www.youtube.com");
+            cancion.setGenero(genero);
+            Cancion cancionGuardada = cancionServicio.addCancion(cancion);
+            Assertions.assertTrue(cancionGuardada.getId() > 0, 
+                    "*** Error *** /nCanción no guardada");
+        }
         
         @Test
         @Disabled
