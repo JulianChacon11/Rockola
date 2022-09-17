@@ -47,6 +47,13 @@ public class MainController {
     public String PlayList(){
         return "playlist";
         }
-    
+    @GetMapping("/artistas")
+    public String Artistas(){
+        return "artistas";
+        }
+    @GetMapping("/generos")
+    public String Generos(){
+        return "generos";
+        }    
     }
 
