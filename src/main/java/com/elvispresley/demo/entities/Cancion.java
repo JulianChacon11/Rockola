@@ -50,6 +50,7 @@ public class Cancion {
     @JoinTable(name = "tcanciones_artistas",
         joinColumns = @JoinColumn(name = "id_cancion"),
         inverseJoinColumns = @JoinColumn(name="id_artista"))
+    
     private List <Artista> artistas;
     
     public Cancion() {
