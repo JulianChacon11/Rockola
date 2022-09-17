@@ -14,8 +14,10 @@ import org.springframework.stereotype.Repository;
  *Interfaz del repositorio de generos
  * @author Julian Chacon
  */
+//
 @Repository
 public interface IGeneroRepository extends JpaRepository<Genero, Integer>{
     
     public List<Genero> findGeneroByNombreContaining(String nombre);
+    public List<Genero> findGeneroById(int id);
 }

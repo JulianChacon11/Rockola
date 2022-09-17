@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
  * Clase para los servicios de la clase Artistas
  * @author Julian Chacon
  */
+//
 @Service
 public class ArtistaService {
    
@@ -70,11 +71,26 @@ public class ArtistaService {
         return artistas;
     }
     
+    public List<Artista> getArtistaById(int id){
+        List<Artista> artistas = artistaRepository.findArtistaById(id);
+        return artistas;
+    }
+    
+    public List<Artista> getArtistaByNacionalidad(String nacionalidad){
+    List<Artista> artistas = artistaRepository.findArtistaByNacionalidad(nacionalidad);
+    return artistas;
+    }    
      /**
      * Metodo para elminar un artista por id
      * @param a, el artista a eliminar
      */
-    public void deleteArtista(Artista a){
-        artistaRepository.deleteById(a.getId());
+    public boolean deleteArtista(int id){
+       Artista a = artistaRepository.findById(id).orElse(null);
+       if(a == null){
+           return false;
+       }else{
+           artistaRepository.delete(a);
+           return true;
+       }    
     }
 }

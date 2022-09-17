@@ -20,7 +20,7 @@ import org.springframework.format.annotation.DateTimeFormat;
  *
  * @author andreastefannygarciamejia
  */
-
+//
 @Entity
 @Table(name = "tclientes")
 public class Cliente implements Serializable {

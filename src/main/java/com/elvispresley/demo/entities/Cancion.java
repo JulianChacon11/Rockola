@@ -5,12 +5,10 @@
  */
 package com.elvispresley.demo.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,6 +21,7 @@ import javax.persistence.ManyToOne;
  * Clase para la gestión de canciones
  * @author Julian Chacon
  */
+//
 @Entity(name = "tcanciones")
 public class Cancion {
     @Id
@@ -39,11 +38,6 @@ public class Cancion {
     @Column(name = "link", length = 200, nullable = false)
     private String link;
     
-    /*
-    @Column(name = "id_genero")
-    private int id_genero;
-    */
-    
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "id_genero")
     private Genero genero;
@@ -56,6 +50,7 @@ public class Cancion {
         joinColumns = @JoinColumn(name = "id_cancion"),
         inverseJoinColumns = @JoinColumn(name="id_artista"))
     private List <Artista> artistas;
+    
     
     public Cancion() {
     }
@@ -73,14 +68,12 @@ public class Cancion {
         this.link = link;
     }
 
-   /*
-    public Cancion(String nombre, String duracion, String link, int id_genero) {
+    public Cancion(String nombre, String duracion, String link, Genero genero) {
         this.nombre = nombre;
         this.duracion = duracion;
         this.link = link;
-        this.id_genero = id_genero;
+        this.genero = genero;
     }
-   */
 
     public int getId() {
         return id;
@@ -141,8 +134,13 @@ public class Cancion {
 
     @Override
     public String toString() {
-        return "Cancion{" + "id=" + id + ", nombre=" + nombre + ", duracion=" + duracion + ", link=" + link + '}';
+        return "Cancion{" + "id=" + id + ", nombre=" + nombre + ", duracion=" + 
+                duracion + ", link=" + link + ", genero=" + genero + 
+                ", playlists=" + playlists + ", artistas=" + artistas + '}';
     }
+
+    
+    
     
     
 }

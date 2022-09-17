@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author diegocabrera
  */
 public class AdministradorService {
-    
+ //   
     @Autowired
     private IAdministradorRepository administradorRepository;
     

@@ -19,6 +19,7 @@ import javax.persistence.ManyToMany;
  * Clase para la gestión de artistas
  * @author Julian Chacon
  */
+//
 @Entity(name = "tartistas")
 public class Artista {
     

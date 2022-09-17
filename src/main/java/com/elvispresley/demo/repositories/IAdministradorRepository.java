@@ -11,6 +11,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author diegocabrera
  */
+//
 public interface IAdministradorRepository extends JpaRepository<Administrador,Integer>{
     
 }

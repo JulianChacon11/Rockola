@@ -17,6 +17,7 @@ import org.springframework.format.annotation.DateTimeFormat;
  *
  * @author andreastefannygarciamejia
  */
+//
 @Entity
 @Table(name = "tusuarios")
 public class Usuario{
