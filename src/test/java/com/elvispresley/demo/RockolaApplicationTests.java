@@ -73,6 +73,30 @@ class RockolaApplicationTests {
         }
         
         @Test
+        @Disabled      
+	void probarAddArtista() {
+            Artista artista = new Artista("Luis Miguel", "mexican");
+            Artista artistaGuardado = artistaServicio.addArtista(artista);
+            Assertions.assertTrue(artistaGuardado.getId() > 0, 
+                    "*** Error *** /nArtista no guardado");
+        }
+        
+        @Test
+        void probarRelacionCancionArtista(){
+            List<Artista> artista = artistaServicio.getArtistaByNombre("Luis");
+            Cancion cancion1 = cancionServicio.getCancionByNombre("Por debajo").get(0);
+            Cancion cancion2 = cancionServicio.getCancionByNombre("Besame").get(0);
+            
+            cancion1.getArtistas().add(artista.get(0));
+            cancion2.getArtistas().add(artista.get(0));
+
+            Cancion cancion1Up = cancionServicio.updateCancion(cancion1);
+            Cancion cancion2Up = cancionServicio.updateCancion(cancion2);
+            Assertions.assertTrue(cancion1Up.getId() > 0 && cancion2Up.getId() > 0, 
+                    "*** Error *** /nCancion(es) no modificada(s) ");
+        }
+
+        @Test
         @Disabled
         void probarCrearPlaylist(){
             Playlist pl = new Playlist();

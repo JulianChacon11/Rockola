@@ -49,9 +49,6 @@ public class Cancion {
     private Genero genero;
     
     @ManyToMany
-    @JoinTable(name = "tplaylists_canciones",
-        joinColumns = @JoinColumn(name = "id_cancion"),
-        inverseJoinColumns = @JoinColumn(name="id_playlist"))
     private List <Playlist> playlists;
     
     @ManyToMany
