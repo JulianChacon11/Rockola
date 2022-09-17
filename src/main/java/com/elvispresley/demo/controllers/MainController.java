@@ -6,6 +6,7 @@
 package com.elvispresley.demo.controllers;
 
 import com.elvispresley.demo.services.CancionService;
+import com.elvispresley.demo.services.GeneroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +22,10 @@ public class MainController {
     
     @Autowired
  private CancionService servicio;
+    
+    @Autowired
+    
+    private GeneroService service;
  
     @GetMapping("/")
     public String cargarPaginaPrincipal(){
@@ -38,7 +43,7 @@ public class MainController {
     
     @GetMapping("/catrock")
     public String Rock(Model rock){
-      rock.addAttribute("/catrock", servicio.getAllCanciones());
+      rock.addAttribute("catragg", service.getAllGeneros());
       return "catrock";
     }
     @GetMapping("/catpop")
@@ -53,7 +58,7 @@ public class MainController {
         }
     @GetMapping("/catragg")
     public String Raggetton(Model ragg){
-        ragg.addAttribute("/catragg", servicio.getAllCanciones());
+        ragg.addAttribute("canciones", servicio.getAllCanciones());
         return "catragg";
         }
      @GetMapping("/playlist")
@@ -67,6 +72,7 @@ public class MainController {
     @GetMapping("/generos")
     public String Generos(){
         return "generos";
-        }    
+        }   
+    
     }
 
