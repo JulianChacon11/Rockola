@@ -152,60 +152,13 @@ background-size:cover;
 .playlists:last-child{
     border-bottom: solid .5px #2e1733;
 }
-/*aqui el search*/
-form{
-    width:270px;
-    margin: 0 auto;
-    margin-left: 19px;
-    margin-top: 20px;
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
-}
-fieldset{
-  display: inline-block;
-  background: #fff;
-  border-radius: 5px;
-  padding: 0 0 0 30px;
-}
-input. button{
-  position: right;
-  width: 200px
-  height:50px;
-  padding: 0;
-}
-input{
-  color: #546E7A;
-  border: none;
-  z-index: 2;
-}
-button{
-  font-size: 1.4em;
-  width: 50px;
-  border: none;
-  background: #fff;
-}
-.fa-search{
-  color:purple;
-}
-input:focus{
-  outline: none;
-}
-input:focus + button{
-  transform: translate(0,0);
-  transition-duration: .3s;
-}
-input:focus + button .fa{
-  color:purple;
-  transform: translate(0,0);
-  transition: .5s;
-}
 
 .user{
     display: flex;
     justify-content:right;
-    height: 1vh;
+    height: 7vh;
     align-items:center;
-    margin-top: -10px;
+    margin-top: 5px;
     margin-right: 35px;
     cursor: pointer;
 }
@@ -219,7 +172,6 @@ input:focus + button .fa{
     border-bottom: solid .3px #aa8caf;
     width: 50%;
     margin: auto auto;
-    margin-top: 10px;
     margin-bottom: 15px;
     transition: all ease-in .6s;
 }
