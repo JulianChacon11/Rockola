@@ -5,11 +5,17 @@
  */
 package com.elvispresley.demo.entities;
 
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 /**
  * Clase para la gestión de artistas
@@ -29,6 +35,9 @@ public class Artista {
     
     @Column(name = "nacionalidad", length = 20, nullable = false)
     private String nacionalidad;
+    
+    @ManyToMany(mappedBy = "artistas")
+    private List <Cancion> canciones;
 
     public Artista() {
     }
@@ -71,6 +80,14 @@ public class Artista {
     @Override
     public String toString() {
         return "Artista{" + "id=" + id + ", nombre=" + nombre + ", nacionalidad=" + nacionalidad + '}';
+    }
+
+    public List<Cancion> getCanciones() {
+        return canciones;
+    }
+
+    public void setCanciones(List<Cancion> canciones) {
+        this.canciones = canciones;
     }
     
     

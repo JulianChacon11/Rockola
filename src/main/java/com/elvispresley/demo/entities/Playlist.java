@@ -9,6 +9,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,7 +37,7 @@ public class Playlist implements Serializable {
     @Column(name = "nombre", length = 20, nullable = false)
     private String nombre;
     
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "tplaylists_canciones",
         joinColumns = @JoinColumn(name = "id_playlist"),
         inverseJoinColumns = @JoinColumn(name="id_cancion"))

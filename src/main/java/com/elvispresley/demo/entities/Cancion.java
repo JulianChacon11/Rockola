@@ -5,7 +5,8 @@
  */
 package com.elvispresley.demo.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
@@ -37,15 +39,20 @@ public class Cancion {
     @Column(name = "link", length = 200, nullable = false)
     private String link;
     
-    @Column(name = "id_genero")
-    private int id_genero;
-    
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_genero", insertable = false, updatable = false)
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "id_genero")
     private Genero genero;
-
-
+    
+    @ManyToMany(mappedBy = "canciones")
+    private List <Playlist> playlists;
+    
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "tcanciones_artistas",
+        joinColumns = @JoinColumn(name = "id_cancion"),
+        inverseJoinColumns = @JoinColumn(name="id_artista"))
+    
+    private List <Artista> artistas;
+    
     public Cancion() {
     }
 
@@ -55,13 +62,18 @@ public class Cancion {
         this.duracion = duracion;
         this.link = link;
     }
-
-   
-    public Cancion(String nombre, String duracion, String link, int id_genero) {
+    
+    public Cancion(String nombre, String duracion, String link) {
         this.nombre = nombre;
         this.duracion = duracion;
         this.link = link;
-        this.id_genero = id_genero;
+    }
+
+    public Cancion(String nombre, String duracion, String link, Genero genero) {
+        this.nombre = nombre;
+        this.duracion = duracion;
+        this.link = link;
+        this.genero = genero;
     }
 
     public int getId() {
@@ -97,10 +109,39 @@ public class Cancion {
         this.link = link;
     }
 
+    public Genero getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
+    }
+
+    public List<Playlist> getPlaylists() {
+        return playlists;
+    }
+
+    public void setPlaylists(List<Playlist> playlists) {
+        this.playlists = playlists;
+    }
+
+    public List<Artista> getArtistas() {
+        return artistas;
+    }
+
+    public void setArtistas(List<Artista> artistas) {
+        this.artistas = artistas;
+    }
+
     @Override
     public String toString() {
-        return "Cancion{" + "id=" + id + ", nombre=" + nombre + ", duracion=" + duracion + ", link=" + link + '}';
+        return "Cancion{" + "id=" + id + ", nombre=" + nombre + ", duracion=" + 
+                duracion + ", link=" + link + ", genero=" + genero + 
+                ", playlists=" + playlists + ", artistas=" + artistas + '}';
     }
+
+    
+    
     
     
 }
