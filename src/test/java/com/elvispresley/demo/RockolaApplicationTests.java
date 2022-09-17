@@ -85,17 +85,19 @@ class RockolaApplicationTests {
         @Test
         @Disabled
         void probarRelacionCancionArtista(){
-            List<Artista> artista = artistaServicio.getArtistaByNombre("Luis");
+            List<Artista> artista= artistaServicio.getArtistaByNombre("Luis");
             Cancion cancion1 = cancionServicio.getCancionByNombre("Por debajo").get(0);
             Cancion cancion2 = cancionServicio.getCancionByNombre("Besame").get(0);
             
-            cancion1.getArtistas().add(artista.get(0));
-            cancion2.getArtistas().add(artista.get(0));
+            cancion1.setArtistas(artista);
+            cancion2.setArtistas(artista);
 
             Cancion cancion1Up = cancionServicio.updateCancion(cancion1);
             Cancion cancion2Up = cancionServicio.updateCancion(cancion2);
+            //Artista artistaUp = artistaServicio.updateArtista(artista);
+            
             Assertions.assertTrue(cancion1Up.getId() > 0 && cancion2Up.getId() > 0, 
-                    "*** Error *** /nCancion(es) no modificada(s) ");
+                    "*** Error *** /nRelación no establecida ");
         }
 
         @Test
@@ -111,6 +113,20 @@ class RockolaApplicationTests {
             
             Assertions.assertTrue(plGuardada.getId() > 0, 
                     "*** Error *** /nPlaylist no guardada");  
+        }
+        
+        @Test
+        @Disabled
+        void probarRelacionPlaylistCancion(){
+            List<Cancion> canciones = cancionServicio.getAllCanciones();
+            Playlist playlist = playlistServicio.consultarPlaylist("Boleritos").get(0);
+            
+            playlist.setCancion(canciones);
+
+            Playlist playlistUp = playlistServicio.actualizarPlaylist(playlist);
+            
+            Assertions.assertTrue(playlistUp.getId() > 0, 
+                    "*** Error *** /nRelación no establecida ");
         }
         
 //         -------------------CANCION-------------
@@ -223,12 +239,15 @@ class RockolaApplicationTests {
 //            Assertions.assertNull(borrar); 
 //        } 
 ////    ----------------GENERO----------------    
-//        @Test
-//        void probarAddGenero(){
-//            Genero g = new Genero("Soul");
-//            Genero guardado = servicioGenero.addGenero(g);
-//            Assertions.assertTrue(guardado.getId() > 0, "Error, no se guardó la canción");
-//        }
+        @Test
+        @Disabled
+        void probarAddGenero2(){
+            Genero g = new Genero();
+            g.setNombre("Soul");
+            Genero guardado = generoServicio.addGenero(g);
+            Assertions.assertTrue(guardado.getId() > 0, 
+                    "*** Error *** /nGénero no guardada");
+        }
 //        
 //         @Test
 //         void probarUpdateGenero(){

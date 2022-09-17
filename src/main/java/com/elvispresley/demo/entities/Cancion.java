@@ -9,6 +9,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -42,15 +43,14 @@ public class Cancion {
     @JoinColumn(name = "id_genero")
     private Genero genero;
     
-    @ManyToMany
+    @ManyToMany(mappedBy = "canciones")
     private List <Playlist> playlists;
     
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "tcanciones_artistas",
         joinColumns = @JoinColumn(name = "id_cancion"),
         inverseJoinColumns = @JoinColumn(name="id_artista"))
     private List <Artista> artistas;
-    
     
     public Cancion() {
     }
