@@ -5,8 +5,10 @@
 package com.elvispresley.demo.controllers;
 
 import com.elvispresley.demo.entities.Cancion;
+import com.elvispresley.demo.entities.Genero;
 import com.elvispresley.demo.repositories.ICancionRepository;
 import com.elvispresley.demo.services.CancionService;
+import com.elvispresley.demo.services.GeneroService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,25 +26,32 @@ public class CancionWebController {
     private ICancionRepository repository;
     
     @Autowired
-    private CancionService service;
+    private CancionService servicio;
+    
+    @Autowired
+    private GeneroService service;
     
     @GetMapping("/api/catrock")
     private ResponseEntity<List<Cancion>> getCancionByGeneroRock(){
-        return new ResponseEntity<>(service.getAllCanciones(), HttpStatus.OK);   
+        Genero genero = service.getGeneroById(1).get(0);
+        return new ResponseEntity<>(servicio.getCancionByGenero(genero), HttpStatus.OK);   
     }
     
     @GetMapping("/api/catpop")
     private ResponseEntity<List<Cancion>> getCancionByGeneroPop(){
-        return new ResponseEntity<>(service.getAllCanciones(), HttpStatus.OK);
+        Genero genero = service.getGeneroById(2).get(0);
+        return new ResponseEntity<>(servicio.getCancionByGenero(genero), HttpStatus.OK);
     }
     
     @GetMapping("/api/catelec")
     private ResponseEntity<List<Cancion>> getCancionByGeneroElect(){
-        return new ResponseEntity<>(service.getAllCanciones(), HttpStatus.OK);
+      Genero genero = service.getGeneroById(4).get(0);
+        return new ResponseEntity<>(servicio.getCancionByGenero(genero), HttpStatus.OK);
     }
     
     @GetMapping("/api/catragg")
     private ResponseEntity<List<Cancion>> getCancionByGeneroRagg(){
-        return new ResponseEntity<>(service.getAllCanciones(), HttpStatus.OK);
+        Genero genero = service.getGeneroById(3).get(0);
+        return new ResponseEntity<>(servicio.getCancionByGenero(genero), HttpStatus.OK);
     }
 }

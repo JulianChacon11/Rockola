@@ -5,6 +5,7 @@
  */
 package com.elvispresley.demo.controllers;
 
+import com.elvispresley.demo.entities.Genero;
 import com.elvispresley.demo.services.CancionService;
 import com.elvispresley.demo.services.GeneroService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,22 +44,26 @@ public class MainController {
     
     @GetMapping("/catrock")
     public String Rock(Model rock){
-      rock.addAttribute("catragg", service.getAllGeneros());
+      Genero genero = service.getGeneroById(1).get(0);
+      rock.addAttribute("canciones", servicio.getCancionByGenero(genero));
       return "catrock";
     }
     @GetMapping("/catpop")
     public String Pop(Model pop){
-        pop.addAttribute("/catpop", servicio.getAllCanciones());
+      Genero genero = service.getGeneroById(2).get(0);
+      pop.addAttribute("canciones", servicio.getCancionByGenero(genero));
         return "catpop";
         }
     @GetMapping("/catelec")
     public String Electronica(Model elec){
-        elec.addAttribute("/catelec", servicio.getAllCanciones());
+      Genero genero = service.getGeneroById(4).get(0);
+      elec.addAttribute("canciones", servicio.getCancionByGenero(genero));
         return "catelec";
         }
     @GetMapping("/catragg")
     public String Raggetton(Model ragg){
-        ragg.addAttribute("canciones", servicio.getAllCanciones());
+       Genero genero = service.getGeneroById(3).get(0);
+      ragg.addAttribute("canciones", servicio.getCancionByGenero(genero));
         return "catragg";
         }
      @GetMapping("/playlist")
