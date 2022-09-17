@@ -76,13 +76,13 @@ class RockolaApplicationTests {
 //            List<Cancion> getCancion = servicio.getCancionByIdGenero(id);
 //            Assertions.assertNotNull(getCancion, "Error!");
 //       }
-          @Test
-          void probarDeleteCancion(){
-            Integer id = 18;
-            List<Cancion> getCancion = servicio.getCancionById(id);
-            boolean borrar = servicio.deleteCancion(id);
-            Assertions.assertNull(borrar); 
-        }       
+//          @Test
+//          void probarDeleteCancion(){
+//            Integer id = 18;
+//            List<Cancion> getCancion = servicio.getCancionById(id);
+//            boolean borrar = servicio.deleteCancion(id);
+//            Assertions.assertNull(borrar); 
+//        }       
 //   --------------------ARTISTA-----------------------------     
 //        @Test
 //        void probarAddArtista(){
