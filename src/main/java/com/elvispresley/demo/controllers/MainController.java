@@ -27,10 +27,10 @@ public class MainController {
     
     private GeneroService service;
  
-//    @GetMapping("/")
-//    public String cargarPaginaPrincipal(){
-//        return "index";
-//        }
+    @GetMapping("/")
+    public String cargarPaginaPrincipal(){
+        return "index";
+        }
     @GetMapping("/login")
     public String iniciarSesion(){
         return "login";
@@ -41,10 +41,10 @@ public class MainController {
         return "registro";
         }
     
-    @GetMapping("/")
+    @GetMapping("/catrock")
     public String Rock(Model rock){
-      rock.addAttribute("/catrock", service.getAllGeneros());
-      return "index";
+      rock.addAttribute("catragg", service.getAllGeneros());
+      return "catrock";
     }
     @GetMapping("/catpop")
     public String Pop(Model pop){
@@ -58,7 +58,7 @@ public class MainController {
         }
     @GetMapping("/catragg")
     public String Raggetton(Model ragg){
-        ragg.addAttribute("/catragg", servicio.getAllCanciones());
+        ragg.addAttribute("canciones", servicio.getAllCanciones());
         return "catragg";
         }
      @GetMapping("/playlist")
@@ -72,6 +72,7 @@ public class MainController {
     @GetMapping("/generos")
     public String Generos(){
         return "generos";
-        }    
+        }   
+    
     }
 
