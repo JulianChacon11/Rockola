@@ -69,6 +69,15 @@ body {
   transition: 0.5s;
   z-index: 0;
 }
+input. id{
+  position:absolute;
+  margin right:  10px;
+}
+.select{
+  position:absolute;
+    margin right:  10px;
+}
+
 .submitBtn {
   display: block;
   margin-left: auto;

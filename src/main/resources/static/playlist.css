@@ -204,7 +204,7 @@ input:focus + button .fa{
     justify-content:right;
     height: 1vh;
     align-items:center;
-    margin-top: -10px;
+    margin-top: 30px;
     margin-right: 35px;
     cursor: pointer;
 }
