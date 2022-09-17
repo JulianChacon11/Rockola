@@ -32,7 +32,7 @@ public class MainController {
 //        return "index";
 //        }
     @GetMapping("/login")
-    public String iniciarSesión(){
+    public String iniciarSesion(){
         return "login";
         }
     
@@ -61,5 +61,17 @@ public class MainController {
         ragg.addAttribute("/catragg", servicio.getAllCanciones());
         return "catragg";
         }
+     @GetMapping("/playlist")
+    public String PlayList(){
+        return "playlist";
+        }
+    @GetMapping("/artistas")
+    public String Artistas(){
+        return "artistas";
+        }
+    @GetMapping("/generos")
+    public String Generos(){
+        return "generos";
+        }    
     }
 

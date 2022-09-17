@@ -21,7 +21,8 @@ class RockolaApplicationTests {
         @Autowired
         private GeneroService servicioGenero;
         
-        @Autowired ArtistaService artistaService;
+        @Autowired 
+        private ArtistaService artistaService;
         
 //         -------------------CANCION-------------
 //	
