@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -32,26 +33,34 @@ public class CancionWebController {
     private GeneroService service;
     
     @GetMapping("/api/catrock")
-    private ResponseEntity<List<Cancion>> getCancionByGeneroRock(){
-        Genero genero = service.getGeneroById(1).get(0);
-        return new ResponseEntity<>(servicio.getCancionByGenero(genero), HttpStatus.OK);   
+    private ResponseEntity<Cancion> getCancionByGeneroRock( @PathVariable String nombre){
+        Cancion c = servicio.getCancionByNombre(nombre).get(0);
+        if (c != null){
+          return  new ResponseEntity<>(c , HttpStatus.OK);   
+        }else{
+            return  new ResponseEntity<>(c , HttpStatus.NOT_FOUND); 
+        }
+          
     }
     
     @GetMapping("/api/catpop")
-    private ResponseEntity<List<Cancion>> getCancionByGeneroPop(){
-        Genero genero = service.getGeneroById(2).get(0);
-        return new ResponseEntity<>(servicio.getCancionByGenero(genero), HttpStatus.OK);
+    private ResponseEntity<List<Cancion>> getCancionByGeneroPop(@PathVariable String nombre){
+       
+        return new ResponseEntity<>(servicio.getCancionByNombre(nombre), HttpStatus.OK);
     }
     
     @GetMapping("/api/catelec")
-    private ResponseEntity<List<Cancion>> getCancionByGeneroElect(){
-      Genero genero = service.getGeneroById(4).get(0);
-        return new ResponseEntity<>(servicio.getCancionByGenero(genero), HttpStatus.OK);
+    private ResponseEntity<List<Cancion>> getCancionByGeneroElect(@PathVariable String nombre){
+        return new ResponseEntity<>(servicio.getCancionByNombre(nombre), HttpStatus.OK);
     }
     
-    @GetMapping("/api/catragg")
-    private ResponseEntity<List<Cancion>> getCancionByGeneroRagg(){
-        Genero genero = service.getGeneroById(3).get(0);
-        return new ResponseEntity<>(servicio.getCancionByGenero(genero), HttpStatus.OK);
+    @GetMapping("/api/catragg/{id}")
+    private ResponseEntity<Cancion> getCancionByGeneroRagg( @PathVariable  int id){
+       Cancion r = servicio.getCancionById(id).get(id);
+        if (r != null){
+          return  new ResponseEntity<>(r , HttpStatus.OK);   
+        }else{
+            return  new ResponseEntity<>(r , HttpStatus.NOT_FOUND); 
+        }
     }
 }
