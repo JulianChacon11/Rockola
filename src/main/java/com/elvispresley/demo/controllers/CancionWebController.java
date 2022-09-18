@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -54,13 +55,20 @@ public class CancionWebController {
         return new ResponseEntity<>(servicio.getCancionByNombre(nombre), HttpStatus.OK);
     }
     
-    @GetMapping("/api/catragg/{id}")
-    private ResponseEntity<Cancion> getCancionByGeneroRagg( @PathVariable  int id){
-       Cancion r = servicio.getCancionById(id).get(id);
-        if (r != null){
-          return  new ResponseEntity<>(r , HttpStatus.OK);   
+    @GetMapping("/api/genero")
+    private ResponseEntity<List<Genero>> getCancionByGeneroRagg( @RequestParam(value="nombre", required=false) String nombre){
+        List <Genero> lista;
+        if (nombre != null){
+         lista= service.getAllGeneros();
+         
         }else{
-            return  new ResponseEntity<>(r , HttpStatus.NOT_FOUND); 
+            lista=service.getGeneroByNombre(nombre);
+            
+        }
+        if(lista.size() >0){
+           return  new ResponseEntity<>(lista , HttpStatus.OK);   
+        }else{
+            return  new ResponseEntity<>(lista, HttpStatus.NOT_FOUND);  
         }
     }
 }
